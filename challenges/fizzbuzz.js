@@ -16,8 +16,17 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+const fizzBuzzFilter = (num) => {
+  const threeDivisor = num % 3 === 0 ? 'fizz' : '';
+  const fiveDivisor = num % 5 === 0 ? 'buzz' : '';
+  const stringOutput = threeDivisor + fiveDivisor;
 
-}
+  return stringOutput || num;
+};
+
+const fizzbuzz = max => Array(max)
+  .fill(null)
+  .map((_, idx) => idx + 1)
+  .map(fizzBuzzFilter);
 
 module.exports = fizzbuzz;
