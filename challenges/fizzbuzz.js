@@ -17,14 +17,13 @@
 //                     16 ]
 
 function fizzbuzz(num) {
- if((typeof num !== 'number')) return "Incorret input";
-  let arr = [];
-  let str = '';
+ if(typeof num !== 'number') return "Incorret input";
+  const arr = [];
   for (let i = 1; i <= num; i++) {
-    if (!(i % 3)) str += 'fizz';
+    let str = '';
+    if (!(i % 3)) str = 'fizz';
     if (!(i % 5)) str += 'buzz';
     arr.push(str || i);
-    str = '';
   }
   return arr;
 }
