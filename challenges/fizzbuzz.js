@@ -17,20 +17,16 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-  if((typeof num !== 'number')) return "Incorret input";
-    let arr = [];
-    for (let i = 1; i <= num; i++) {
-      if (i % 3 === 0 && i % 5 === 0) {
-        arr.push('fizzbuzz');
-      } else if (i % 3 === 0) {
-        arr.push('fizz');
-      } else if (i % 5 === 0) {
-        arr.push('buzz');
-      } else {
-        arr.push(i)
-      }
-    }
-    return arr;
+ if((typeof num !== 'number')) return "Incorret input";
+  let arr = [];
+  let str = '';
+  for (let i = 1; i <= num; i++) {
+    if (!(i % 3)) str += 'fizz';
+    if (!(i % 5)) str += 'buzz';
+    arr.push(str || i);
+    str = '';
+  }
+  return arr;
 }
 
 module.exports = fizzbuzz;
