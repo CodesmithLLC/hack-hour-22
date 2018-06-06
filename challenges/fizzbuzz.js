@@ -16,8 +16,28 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
 
+function fizzbuzz(num) {
+	//fizz if divisible by 3
+	//buzz if divisible by 5
+	//fizzbuzz if divisible by 3 and 5
+	let value=0;
+	let newArr=[];
+    while (value<num){
+        value++;
+        (value%3===0&&value%5===0)? newArr.push('fizbuzz'): //if value divisible by 3 and 5, automatically push fizzbuzz and do not check for other values
+        ( value%5===0)? newArr.push('buzz') : //else check if value is divisible by 5 and push buzz
+        (value%3===0) ? newArr.push('fizz'):  newArr.push(value);//else if divisible by 3 =>push fizz. If not divisible by 3 or 5, push value.
+
+       /* if (value%3===0&&value%5===0) newArr.push('fizbuzz');  //I originally wrote the entire if statement operation in order to make sure my logic was correct
+        else if ( value%5===0) {newArr.push('buzz');}
+        else if (value%3===0) {newArr.push('fizz');}
+        else newArr.push(value);
+        */
+    }
+	return newArr;
+	
+	
 }
 
 module.exports = fizzbuzz;
