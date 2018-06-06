@@ -17,7 +17,40 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+  let newArr = [];
+  for (let i = 1; i <= num; i++){
+    if ((i % 3 === 0) && (i % 5 === 0)){
+      newArr.push("fizzbuzz");
+    }else if (i % 3 === 0){
+      newArr.push("fizz");
+    }else if (i % 5 === 0){
+      newArr.push("buzz");
+    }else {newArr.push(i);}
+  }
+  return newArr;
 }
+
+/*
+// Alternate using switch statement
+function fizzbuzz(num){
+  let newArr = [];
+  for (let i = 1; i <= num; i++){
+    switch (true) {
+      case i%3 === 0 && i%5 === 0:
+        newArr.push("fizzbuzz");
+        break;
+      case i%3 === 0:
+        newArr.push("fizz");
+        break;
+      case i%5 === 0:
+        newArr.push("buzz");
+        break;
+      default:
+        newArr.push(i);
+    }
+  }
+  return newArr;
+}
+*/
 
 module.exports = fizzbuzz;
