@@ -16,8 +16,55 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+//version that uses for loop 
+// function fizzbuzz(num) {
+// 	let output = [];
+// 	for (let i = 1; i <= num; i++) {
+// 		if (i % 3 === 0 && i % 5 === 0) {
+// 			output.push('fizzbuzz');
+// 		} else if (i % 3 === 0) {
+// 			output.push('fizz');
+// 		} else if (i % 5 === 0) {
+// 			output.push('buzz')
+// 		} else {
+// 			output.push(i);
+// 		}
+// 	}
+// 	return output;
+// }
 
+//version that makes array and then mutates with map
+// function fizzbuzz(num) {
+// 	let output = [...Array(num + 1).keys()];
+// 	output.shift();
+// 	return output.map(el => {
+// 		if (el % 3 === 0 && el % 5 === 0) {
+// 			return 'fizzbuzz';
+// 		} else if (el % 5 === 0) {
+// 			return 'buzz';
+// 		} else if (el % 3 === 0) {
+// 			return 'fizz';
+// 		} else {
+// 			return el;
+// 		}
+// 	});
+// }
+
+//recursive version
+function fizzbuzz(num, output = []) {
+	if (num === 0) {
+		return output;
+	} else if (num % 3 === 0 && num % 5 === 0) {
+		output.unshift('fizzbuzz');
+	} else if (num % 3 === 0) {
+		output.unshift('fizz');
+	} else if (num % 5 === 0) {
+		output.unshift('buzz')
+	} else {
+		output.unshift(num);
+	}
+	num--;
+	return fizzbuzz(num, output);
 }
 
 module.exports = fizzbuzz;
