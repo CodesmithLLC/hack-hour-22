@@ -16,7 +16,8 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+// OPTION 1
+function fizzbuzz1(num) {
   let count = 1;
   let result = [];
   while (count <= num) {
@@ -32,4 +33,34 @@ function fizzbuzz(num) {
   }
   return result;
 }
-module.exports = fizzbuzz;
+
+//OPTION 2
+function fizzbuzz2(num) {
+  let count = 1;
+  let result = [];
+  while (count <= num) {
+    let element = '';
+    switch (true) {
+      case (count % 3 === 0 && count % 5 === 0):
+        element = 'fizzbuzz';
+        break;
+      case (count % 3 === 0):
+        element = 'fizz';
+        break;
+      case (count % 5 === 0):
+        element = 'buzz';
+        break;
+      default:
+        element = count;
+        break;
+    }
+    result.push(element);
+    count += 1;
+  }
+  return result;
+}
+
+module.exports = {
+  fizzbuzz1,
+  fizzbuzz2
+};
