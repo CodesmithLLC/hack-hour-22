@@ -26,7 +26,6 @@ const fizzBuzzFilter = (num) => {
 
 const fizzbuzz = max => Array(max)
   .fill(null)
-  .map((_, idx) => idx + 1)
-  .map(fizzBuzzFilter);
+  .map((_, idx) => fizzBuzzFilter(idx + 1));
 
 module.exports = fizzbuzz;
