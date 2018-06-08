@@ -23,10 +23,8 @@ function drawStairs(n) {
         console.log(stair.join(''));
     }
 
-    return stair.join('');
+    // return stair.join('');
 }
 
-
-console.log(drawStairs(16));
 
 module.exports = drawStairs;
