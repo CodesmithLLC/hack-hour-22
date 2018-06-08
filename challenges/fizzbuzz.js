@@ -16,13 +16,13 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-const fizzBuzzFilter = (num) => {
+function fizzBuzzFilter(num) {
   const threeDivisor = num % 3 === 0 ? 'fizz' : '';
   const fiveDivisor = num % 5 === 0 ? 'buzz' : '';
   const stringOutput = threeDivisor + fiveDivisor;
 
   return stringOutput || num;
-};
+}
 
 const fizzbuzz = max => Array(max)
   .fill(null)
