@@ -42,7 +42,6 @@ function fizzbuzz(num) {
 //     "buzz" if  divisble by 5, 
 //     "fizzbuzz" if divisble by both 3 and 5
     for (let x = 1; x < copyInput+1; x++){
-
         if (x % 3 === 0 && x % 5 === 0 ) {
             word = "fizzbuzz"
         }
@@ -64,5 +63,5 @@ function fizzbuzz(num) {
 
 }
 
-console.log(fizzbuzz(['170.00']))
+console.log(fizzbuzz(['-']))
 module.exports = fizzbuzz;
