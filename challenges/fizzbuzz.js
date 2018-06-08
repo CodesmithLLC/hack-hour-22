@@ -16,6 +16,7 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+<<<<<<< HEAD
 // OPTION 1
 function fizzbuzz1(num) {
   let count = 1;
@@ -33,6 +34,9 @@ function fizzbuzz1(num) {
   }
   return result;
 }
+=======
+function fizzbuzz(num) {  
+>>>>>>> 4d093b1b3c0f86c5cfd7f5e098f474291392bf00
 
 //OPTION 2
 function fizzbuzz2(num) {
