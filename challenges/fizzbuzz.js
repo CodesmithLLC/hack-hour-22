@@ -39,6 +39,5 @@ function fizzbuzz(num) {
     }
   }
   return arr;
-}
 
 module.exports = fizzbuzz;
