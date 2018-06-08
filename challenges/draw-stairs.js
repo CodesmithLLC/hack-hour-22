@@ -22,7 +22,6 @@ function drawStairs(n) {
   }
 }
 
-[6, 1, 0].map(drawStairs);
 
 
 module.exports = drawStairs;
