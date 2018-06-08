@@ -17,7 +17,27 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
-}
+  // create an empty array
+  let arr = [];
+  // loop over num while less than or equal
+  for(let i = 1; i <= num; i++) {
+    // push fizzbuzz into array if divisible by 3 or 5
+    if(i % 15 === 0){
+      arr.push('fizzbuzz');
+    }
+    // push 'fizz' if divisible by 3
+    else if(i % 3 === 0) {
+      arr.push('fizz');
+    }
+    // push 'buzz' if divisible by 5
+    else if(i % 5 === 0) {
+      arr.push('buzz');
+    }
+    // push the number
+    else {
+      arr.push(i);
+    }
+  }
+  return arr;
 
 module.exports = fizzbuzz;
