@@ -13,17 +13,14 @@
 
 */
 
-// function drawStairs(n) {
-//     let s = '';
-//     for(let i = 0; i <= n; i++) {
-//         s += ' '.repeat(n - i) + '*'.repeat(i) + '\n';
-//     }
-//     return s;
-// }
-
 function drawStairs(n) {
-    let s = ''; 
+    let s = '';
+    for(let i = 0; i <= n; i++) {
+        s += ' '.repeat(n - i) + '*'.repeat(i) + '\n';
+    }
+    return s;
 }
+
 
 console.log(drawStairs(6));
 module.exports = drawStairs;
