@@ -16,8 +16,18 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {  
-
+function fizzbuzz(num) {
+  const arr = [...Array(num).keys()]
+  return arr.map(x => {
+    const i = x + 1;
+    if (i % 15 === 0) {
+      return 'fizzbuzz';
+    } else if (i % 3 === 0 || i % 5 === 0) {
+      return i % 3 === 0 ? 'fizz' : 'buzz';
+    } else {
+      return i;
+    }
+  });
 }
 
 module.exports = fizzbuzz;
