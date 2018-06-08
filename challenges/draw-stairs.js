@@ -14,7 +14,10 @@
 */
 
 function drawStairs(n) {
-
+    let count = 1;
+    while (n > 0) {
+        console.log(" ".repeat(n --), "*".repeat(count++));
+    }
 }
 
 
