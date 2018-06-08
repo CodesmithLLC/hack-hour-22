@@ -16,6 +16,7 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+<<<<<<< HEAD
 //version that uses for loop 
 // function fizzbuzz(num) {
 // 	let output = [];
@@ -32,6 +33,9 @@
 // 	}
 // 	return output;
 // }
+=======
+function fizzbuzz(num) {  
+>>>>>>> 4d093b1b3c0f86c5cfd7f5e098f474291392bf00
 
 //version that makes array and then mutates with map
 // function fizzbuzz(num) {
