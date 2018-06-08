@@ -14,8 +14,31 @@
 */
 
 function drawStairs(n) {
+    let outputString = "";
+    let outputArray = Array(n);
+    outputArray.fill(" ");
+    let starSpot = n - 1;
 
+
+    for ( let h = 0; h < n; h++ ) {
+        outputArray[starSpot] = "*";
+        console.log(outputArray.join(''));
+        starSpot--;
+    }
+
+    // for ( let j = n; j > -1; j-- ) {
+    //     for ( let i = 0; i < n; i++ ) {
+    //         if ( i < j ) {
+    //             outputString += " ";
+    //         }
+    //         else {
+    //             outputString += "*";
+    //         }
+    //     }
+    //     console.log(outputString);
+    //     outputString = "";
+    // }
 }
-
+drawStairs(6)
 
 module.exports = drawStairs;
