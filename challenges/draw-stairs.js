@@ -16,11 +16,7 @@
 function drawStairs(n) {
   return Array(n)
     .fill(null)
-    .map((_, index) => {
-      const space = Array(n - (index + 1)).fill(' ');
-      const steps = Array(index + 1).fill('*');
-      return [...space, ...steps].join('');
-    })
+    .map((_, index) => ' '.repeat(n - (index + 1)) + '*'.repeat(index + 1))
     .join('\n');
 }
 
