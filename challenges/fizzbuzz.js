@@ -16,8 +16,44 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+<<<<<<< HEAD
 function fizzbuzz(num) {
+  const output = [];
+=======
+function fizzbuzz(num) {  
+>>>>>>> 4d093b1b3c0f86c5cfd7f5e098f474291392bf00
 
+  for (let i = 1; i <= num; i++) {
+    let str = '';
+    if (i % 3 === false || (!(i % 3)) || i % 3 === 0) {
+      str += 'fizz';
+    }
+    if (i % 5 === 0) {
+      str += 'buzz';
+    }
+    output.push(str || i);
+
+    // i % 15 === 0 ? output.push('fizzbuzz') :
+    //  i % 5 === 0 ? output.push('buzz') :
+    //   i % 3 === 0 ? output.push ('fizz') :
+    //     output.push(i);
+
+    //   if (i % 15 === 0) {
+    //     output.push('fizzbuzz');
+    //   }
+    //   if (i % 5 === 0 ) {
+    //     output.push('buzz');
+    //   }
+    //   if (i % 3 === 0) {
+    //     output.push('fizz');
+    //   }
+    //   else {
+    //     output.push(i);
+    //   }
+  }
+  return output;
 }
+
+console.log(fizzbuzz(16));
 
 module.exports = fizzbuzz;
