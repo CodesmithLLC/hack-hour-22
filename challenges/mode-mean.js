@@ -47,4 +47,4 @@
    return mode === mean;
  }
 
-module.exports = modemean;
+module.exports = modeMean;
