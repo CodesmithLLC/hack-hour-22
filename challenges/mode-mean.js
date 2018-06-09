@@ -12,20 +12,17 @@ function modemean(array) {
   if (!array.length) {
     return true;
   }
-  let highest = [0, 0];
-  let mean = array.reduce((acc, num) => acc + num) / array.length;
-  let count = array.reduce((acc, x) => {
+  const mean = array.reduce((acc, num) => acc + num) / array.length;
+  let countObj = array.reduce((acc, x) => {
     if (acc[x]) acc[x] = acc[x] += 1;
     if (!acc[x]) acc[x] = 1;
     return acc;
   }, {});
-  for (const key in count) {
-    if (count[key] > highest[1] || (count[key] === highest[1] && +key > highest[0])) {
-      highest = [+key, count[key]];
-    }
-  }
-  return mean === highest[0];
+  const mode = +Object.entries(countObj).reduce((acc, x) => {
+    return x[1] > acc[1] || (x[1] === acc[1] && +x[0] > +acc[0]) ? x : acc;
+  })[0];
+
+  return mean === mode;
 }
 
-console.log(modemean([3, 4, 5, 5, 8]))
 module.exports = modemean;
