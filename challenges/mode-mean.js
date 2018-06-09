@@ -11,7 +11,7 @@
 
 
 function modemean(array) {
-  let result = array.reduce((acc, elem) => {
+  const {total, mostFreq, prevFreq} = array.reduce((acc, elem) => {
     acc.total += elem;
     acc[elem] = (acc[elem] += 1) || 1;
     if (acc.mostFreq < acc[elem]) {
@@ -21,7 +21,7 @@ function modemean(array) {
     return acc;
   }, {prevFreq: 0, mostFreq: 0, total: 0});
 
-  return Math.floor(result.total/array.length) === Math.max(result.prevFreq, result.mostFreq);
+  return Math.floor(total/array.length) === Math.max(prevFreq, mostFreq);
 }
 
 module.exports = modemean;
