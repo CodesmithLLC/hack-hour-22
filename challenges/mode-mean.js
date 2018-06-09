@@ -41,3 +41,4 @@ function modemean(array) {
   return Math.floor(mean) === mode;
 }
 
+module.exports = modemean;
