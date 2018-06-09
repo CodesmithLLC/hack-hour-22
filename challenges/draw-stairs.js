@@ -27,8 +27,6 @@ function drawStairs(n) {
     return result;
 }
 
-console.log(drawStairs(1));
-console.log(drawStairs(6));
 
 
 
