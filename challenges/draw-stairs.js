@@ -16,11 +16,11 @@
 function drawStairs(num) {
     let counter = 1;
     let n = num;
-    let str = ""
+    let str = "";
     while(n > 1) {
-      str += (" ".repeat(n-1) + "*".repeat(counter) + '\n')
-      n--;
-      counter++
+        str += (" ".repeat(n-1) + "*".repeat(counter) + '\n');
+        n--;
+        counter++;
     }
     console.log(str += "*".repeat(counter));
 }
