@@ -10,7 +10,7 @@
  */
 
 
- function modemean(array) {
+ function modeMean(array) {
 
    let total = 0, mean, modeObj = {}, modeCount, mode;
 
