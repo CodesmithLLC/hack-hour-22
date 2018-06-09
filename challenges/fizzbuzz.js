@@ -16,8 +16,47 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {  
-
+<<<<<<< HEAD
+function fizzbuzz(num) {
+  let newArr = [];
+  for (let i = 1; i <= num; i++){
+    if ((i % 3 === 0) && (i % 5 === 0)){
+      newArr.push("fizzbuzz");
+    }else if (i % 3 === 0){
+      newArr.push("fizz");
+    }else if (i % 5 === 0){
+      newArr.push("buzz");
+    }else {newArr.push(i);}
+  }
+  return newArr;
 }
+||||||| merged common ancestors
+function fizzbuzz(num) {
+=======
+function fizzbuzz(num) {  
+>>>>>>> 4d093b1b3c0f86c5cfd7f5e098f474291392bf00
+
+/*
+// Alternate using switch statement
+function fizzbuzz(num){
+  let newArr = [];
+  for (let i = 1; i <= num; i++){
+    switch (true) {
+      case i%3 === 0 && i%5 === 0:
+        newArr.push("fizzbuzz");
+        break;
+      case i%3 === 0:
+        newArr.push("fizz");
+        break;
+      case i%5 === 0:
+        newArr.push("buzz");
+        break;
+      default:
+        newArr.push(i);
+    }
+  }
+  return newArr;
+}
+*/
 
 module.exports = fizzbuzz;
