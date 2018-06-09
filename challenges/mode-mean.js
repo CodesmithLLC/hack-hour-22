@@ -9,30 +9,6 @@
  *
  */
 
-
-// function modemean(array) {
-//   if (array.length === 0) return true;
-//   const counts = {};
-//   let currentMode = [array[0], 1];
-
-//   const mean = array.reduce((res, val) => {
-//     counts[val] = counts[val] ? counts[val] + 1 : 1;
-
-//     // counting side effect
-//     if (counts[val] > currentMode[1]) {
-//       currentMode = [val, counts[val]];
-//     } else if (counts[val] === currentMode[1] && val > currentMode[0]) {
-//       currentMode = [val, counts[val]];
-//     }
-//     // end side effect
-
-//     return res + val;
-//   }, 0) / array.length;
-//   const [mode] = currentMode;
-
-//   return Math.floor(mean) === mode;
-// }
-
 function modemean(array) {
   if (array.length === 0) return true;
 
@@ -64,6 +40,4 @@ function modemean(array) {
   const { mean, mode } = processed;
   return Math.floor(mean) === mode;
 }
-
-module.exports = modemean;
 
