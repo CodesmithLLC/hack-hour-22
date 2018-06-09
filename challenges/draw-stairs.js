@@ -17,18 +17,40 @@ function drawStairs(n) {
     let depth = 1;
     let result = '';
     while (depth <= n) {
-        console.log('here');
-
-        for (let i = depth; i < n; i += 1) {
-            result += ' ';
-        }
-        for (let i = 0; i < depth; i += 1) {
-            result += '*';
+        for (let i = 0; i < n; i += 1) {
+            result += i < n - depth ? ' ' : '*';
         }
         result += '\n';
         depth += 1;
     }
+    console.log(result.length);
     return result;
 }
 
+console.log(drawStairs(1));
+console.log(drawStairs(6));
+
+
+
 module.exports = drawStairs;
+
+
+// function drawStairs(n) {
+//     let depth = 1;
+//     let result = '';
+//     while (n >= depth) {
+//         if (n > depth) {
+//             result += ' ';
+//         } else {
+//             result += '*';
+//         }
+//         console.log(n);
+//         console.log(result);
+//         console.log(depth);
+
+//         depth += 1;
+//         result += '\n'
+//     }
+//     console.log(result.length);
+//     return result;
+// }
