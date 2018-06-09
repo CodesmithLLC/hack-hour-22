@@ -13,12 +13,16 @@
 
 */
 
-function drawStairs(n) {
-    let count = 1;
-    while (n > 0) {
-      if (n <= 0) console.log("*".repeat(count++));
-      console.log(" ".repeat(n-=1), "*".repeat(count++));
+function drawStairs(num) {
+    let counter = 1;
+    let n = num;
+    let str = ""
+    while(n > 1) {
+      str += (" ".repeat(n-1) + "*".repeat(counter) + '\n')
+      n--;
+      counter++
     }
+    console.log(str += "*".repeat(counter));
 }
 
 
