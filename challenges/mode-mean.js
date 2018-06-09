@@ -14,8 +14,8 @@ function modemean(array) {
   if (array.length === 0) return true;
 
   let total = 0;
-  
-  const tallies = array.reduce((acc, num) => {
+  const n = array.length;
+  const tallies = array.sort().reduce((acc, num) => {
     if (!acc[num]) {
       acc[num] = 1;
     } else {
@@ -27,9 +27,12 @@ function modemean(array) {
 
   const uniques = Object.keys(tallies);
   const counts = Object.values(tallies);
+  
   const mode = uniques[counts.lastIndexOf((Math.max(...counts)))]
 
   return mode === Math.floor(total / n);
 }
 
 module.exports = modemean;
+
+console.log(modemean([1,3, 3, 3, 3, 3, 1, 1, 5, 5, 5, 5, 5, 2, 2, 2, 2, 2, 2, 2, 2]));
