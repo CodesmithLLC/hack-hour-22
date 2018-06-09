@@ -16,6 +16,7 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+<<<<<<< HEAD
 function fizzbuzz(num) {
     const arr = [];
     for (let i = 1; i <= num; i++) {
@@ -26,6 +27,10 @@ function fizzbuzz(num) {
     arr.push(i);
     }
     return arr;
+=======
+function fizzbuzz(num) {  
+
+>>>>>>> 4d093b1b3c0f86c5cfd7f5e098f474291392bf00
 }
 
 module.exports = fizzbuzz;
