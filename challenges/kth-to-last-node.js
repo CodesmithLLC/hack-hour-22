@@ -43,7 +43,10 @@ function kthToLastNode(k, head) {
     head = head.prev;
     index--;
   }
+  if (whereYouWant === -1) {
+    return head.value
+  }
 }
 
-console.log(kthToLastNode(2, a))
+console.log(kthToLastNode(0, a))
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
