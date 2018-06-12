@@ -22,6 +22,8 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (k <= 0) return;
+  
   let behind = head, ahead = head;
   let i = 1;
   while (ahead.next && i < k) {
@@ -55,6 +57,18 @@ console.log(kthToLastNode(1, a)); // E
 console.log(kthToLastNode(2, a)); // D
 console.log(kthToLastNode(5, a)); // A
 console.log(kthToLastNode(6, a)); // undefined
+*/
+
+/*
+const a = new Node('A');
+const b = new Node('B');
+
+a.next = b;
+
+console.log(kthToLastNode(1, a)); // B
+console.log(kthToLastNode(2, a)); // A
+console.log(kthToLastNode(3, a)); // undefined
+console.log(kthToLastNode(4, a)); // undefined
 */
 
 
