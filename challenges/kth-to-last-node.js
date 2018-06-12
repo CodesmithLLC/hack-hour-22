@@ -22,7 +22,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if (!head.next || typeof k !== 'number') return;
+  if (!head || !head.next || typeof k !== 'number') return undefined;
   let temp = head;
   const arr = [head];
   while (temp.next) {
@@ -31,6 +31,7 @@ function kthToLastNode(k, head) {
   }
   const index = arr.length - k;
   if (arr[index] && arr[index].value) return arr[index].value;
+  return undefined;
 }
 
 module.exports = { Node, kthToLastNode };
