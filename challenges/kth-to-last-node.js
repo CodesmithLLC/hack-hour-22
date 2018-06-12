@@ -22,14 +22,15 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if (!head.next) return;
+  if (!head.next || typeof k !== 'number') return;
   let temp = head;
   const arr = [head];
   while (temp.next) {
     temp = temp.next;
     arr.push(temp);
   }
-  return arr[arr.length - k].value || undefined;
+  const index = arr.length - k;
+  if (arr[index] && arr[index].value) return arr[index].value;
 }
 
 module.exports = { Node, kthToLastNode };
