@@ -16,12 +16,12 @@ function modemean(array) {
             acc[curr] ? acc[curr]++ : acc[curr] = 1;
             return acc;
         }, {});
-    let avg = arr.reduce((acc, curr) => {
+    let sum = arr.reduce((acc, curr) => {
         acc = Math.floor( (acc + curr) / array.length);
         return acc; 
-    })
+    });
    let mode = Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
-return avg = mode ? true : false;
+    return avg = mode ? true : false;
 
 }
 
