@@ -25,13 +25,16 @@ function kthToLastNode(k, head) {
   let fastPointer = head;
 
   for (let i = 1; i < k; i++) {
-    fastPointer = fastPointer.next;
+    if (fastPointer.next !== null) {
+      fastPointer = fastPointer.next;
+    } else return null;
   }
 
   while (fastPointer.next !== null) {
     fastPointer = fastPointer.next;
     slowPointer = slowPointer.next;
   }
+
   return slowPointer.value;
 }
 
