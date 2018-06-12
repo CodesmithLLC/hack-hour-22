@@ -35,7 +35,7 @@ function kthToLastNode(k, head) {
   }
 
   if(k > listLength) {
-    return null;
+    return undefined;
   }
 
   const kthToLastIndex = listLength - k;
