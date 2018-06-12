@@ -22,6 +22,25 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+ let currentNodeIndex = 0;
+ let linkedLength = 0;
+ let currentNode = head;
+ while (currentNode.next !== null) {
+   currentNodeIndex += 1;
+   currentNode = currentNode.next;
+ }
+ // store list length
+ linkedLength = currentNodeIndex;
+
+ // reset for a second traversal
+ currentNodeIndex = 0;
+ currentNode = head;
+
+ for (let currentNodeIndex = 0; currentNodeIndex < linkedLength - k + 1; currentNodeIndex++) {
+   currentNode = currentNode.next;
+ }
+
+ return currentNode.next;
 
 }
 
