@@ -15,7 +15,7 @@
    let total = 0, mean, modeObj = {}, modeCount, mode;
 
    if (array.length === 0){
-     return true;
+     return false;
    }
 
    /*
