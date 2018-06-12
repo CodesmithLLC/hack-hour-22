@@ -22,6 +22,11 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+
+ if (k < 0) return undefined;
+ if (k === 0) return head.value;
+
+
  let currentNodeIndex = 0;
  let linkedLength = 0;
  let currentNode = head;
@@ -31,6 +36,7 @@ function kthToLastNode(k, head) {
  }
  // store list length
  linkedLength = currentNodeIndex;
+ if (k > linkedLength) return undefined;
 
  // reset for a second traversal
  currentNodeIndex = 0;
@@ -40,7 +46,7 @@ function kthToLastNode(k, head) {
    currentNode = currentNode.next;
  }
 
- return currentNode.next;
+ return currentNode.value;
 
 }
 
