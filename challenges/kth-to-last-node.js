@@ -46,7 +46,7 @@ function kthToLastNode(k, head) {
    currentNode = currentNode.next;
  }
 
- return currentNode.value;
+ return (currentNode.value) ? currentNode.value : undefined;
 
 }
 
