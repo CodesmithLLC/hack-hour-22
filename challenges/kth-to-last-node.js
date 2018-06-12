@@ -22,7 +22,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  // make sure k exists
+  if (k === undefined) {
+    console.log('Select another number');
+  }
 
+  // create vals array
+  let nextNode = head.next;
+  const vals = [head.value];
+
+  // loop through node and push vals in array
+  while(nextNode) {
+    vals.push(nextNode.vals)
+    nextNode = nextNode.next
+  }
+
+  // subtract kth from last element in vals array
+  return vals[vals.length - k]
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
