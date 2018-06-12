@@ -22,7 +22,30 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+    let arrOfValues = [];
+    let currentNode = head;
 
+    arrOfValues.push(currentNode);
+
+    while ( currentNode.next !== null ) {
+        currentNode = currentNode.next; 
+        arrOfValues.push(currentNode);
+    }
+    return arrOfValues[arrOfValues.length - k].value;
+    
 }
+
+
+// const a = new Node('A');
+// const b = new Node('B');
+// const c = new Node('C');
+// const d = new Node('D');
+// const e = new Node('E');
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// console.log(kthToLastNode(2, a));
+// console.log("end");
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
