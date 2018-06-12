@@ -22,7 +22,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+	//return undefined if k is invalid or head is not provided
+	if (!head || k < 1) return undefined;
+	
+	//initialize variables for current node of linked list and all nodes of linked list
+	let currentNode = head;
+	let nodes = [];
 
+	//iterate through linked list, adding each nodes to the nodes array
+	while (currentNode !== null) {
+		nodes.push(currentNode);
+
+		//set current node to the next node in the linked list
+		currentNode = currentNode.next;
+	}
+
+	//return kth item from the end of the linked list, or undefined if k is outside the boundaries of the list
+	return k <= nodes.length ? nodes[nodes.length - k].value : undefined;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
