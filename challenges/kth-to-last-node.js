@@ -22,7 +22,51 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  let current = head;
+  let listLength = 1;
 
+  // GET LENGTH OF LINKED LIST
+  while(current.next) {
+    current = current.next;
+    listLength++;
+  }
+
+  // CONDITIONALS
+  if(k === 0) {
+    return current.value;
+  }
+
+  if(k > listLength || k < 0) {
+    return undefined;
+  }
+
+  // GET VALUE 
+  const kthToLastIndex = listLength - k;
+  let counter = 0;
+  let kthToLastVal;
+  let newCurrent = head;
+
+  while(counter < kthToLastIndex) {
+    newCurrent = newCurrent.next;
+    counter += 1;
+  }
+
+  return newCurrent.value;  
 }
+
+
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+
+console.log(kthToLastNode(2, a));
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
