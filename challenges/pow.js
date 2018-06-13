@@ -12,7 +12,7 @@ function pow(base, power) {
     }
 
     function f(n, times){
-        return value *= value;
+        return value *= base;
     }
 
     while (runTimes > 1){
@@ -29,4 +29,4 @@ function pow(base, power) {
 
 module.exports = pow;
 
-//console.log(pow(10, 2));
+//console.log(pow(-2, 3));
