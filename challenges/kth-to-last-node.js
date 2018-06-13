@@ -26,7 +26,7 @@ function kthToLastNode(k, head) {
   let array = [];
   
   let current = head;
-
+  
   while (current){
     
     array.push(current.value);
