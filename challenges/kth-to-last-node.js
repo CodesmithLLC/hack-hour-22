@@ -13,16 +13,48 @@
  * c.next = d;
  * d.next = e;
  *
- * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
+ * kthToLastNode2, a); -> returns 'D' (the value on the second to last node)
  */
+function LinkedList() {
+  this.head = null;
+  this.tail = null;
+}
 
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
+
 function kthToLastNode(k, head) {
+  if (k <= 0) return;
+  let first = head;
+  let follow = head;
 
-}
+  for (let i = 0; i < k && first; i += 1) {
+    first = first.next;
+  }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+  while (first && follow) {
+    first = first.next;
+    follow = follow.next;
+  }
+  return follow.value;
+  return first;
+};
+
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+// const d = new Node('D');
+// const e = new Node('E');
+
+console.log(a.next = b);
+console.log(b.next = c);
+// c.next = d;
+// d.next = e;
+console.log(a);
+
+console.log(kthToLastNode(2, a));
+
+module.exports = { Node: Node, kthToLastNode: kthToLastNode };
