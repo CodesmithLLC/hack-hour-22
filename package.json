@@ -1,7 +1,7 @@
 {
   "name": "hack-hour-22",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hack hours are a series of algorithm problems to refine your problem solving skills. You will be presented a new algorithm problem every day.",
   "main": "index.js",
   "engines": {
     "node": ">= 5.5.0"
@@ -28,5 +28,16 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-22.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodesmithLLC/hack-hour-22/issues"
+  },
+  "homepage": "https://github.com/CodesmithLLC/hack-hour-22#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  },
+  "keywords": [],
+  "author": ""
 }
