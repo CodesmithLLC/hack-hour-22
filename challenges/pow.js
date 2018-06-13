@@ -3,7 +3,13 @@
  */
 
 function pow(base, power) {
-
+  let pwr = power;
+  while (pwr > 1) {
+    pwr -= 1;
+    return (base *= pow(base, pwr));
+  }
+  return base;
 }
 
 module.exports = pow;
+
