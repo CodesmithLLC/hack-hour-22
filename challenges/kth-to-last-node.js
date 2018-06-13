@@ -25,19 +25,22 @@ function kthToLastNode(k, head) {
   let current = head;
   let listLength = 1;
 
+  // GET LENGTH OF LINKED LIST
   while(current.next) {
     current = current.next;
     listLength++;
   }
 
+  // CONDITIONALS
   if(k === 0) {
     return current.value;
   }
 
-  if(k > listLength) {
+  if(k > listLength || k < 0) {
     return undefined;
   }
 
+  // GET VALUE 
   const kthToLastIndex = listLength - k;
   let counter = 0;
   let kthToLastVal;
@@ -63,7 +66,7 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(6, a));
+console.log(kthToLastNode(2, a));
 
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
