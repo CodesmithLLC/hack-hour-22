@@ -59,7 +59,7 @@ console.log(kthToLastNode(5, a)); // A
 console.log(kthToLastNode(6, a)); // undefined
 */
 
-/*
+
 const a = new Node('A');
 const b = new Node('B');
 
@@ -69,7 +69,7 @@ console.log(kthToLastNode(1, a)); // B
 console.log(kthToLastNode(2, a)); // A
 console.log(kthToLastNode(3, a)); // undefined
 console.log(kthToLastNode(4, a)); // undefined
-*/
+
 
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
