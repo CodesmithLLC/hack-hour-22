@@ -5,10 +5,10 @@
 function pow(base, power) {
  if (power === 0) return 1;
  if (power > 0) {
-   return power === 1 ? base : base * power(base, power - 1);
+   return power === 1 ? base : base * pow(base, power - 1);
  }
  if (power < 0) {
-   return power === -1 ? (1 / base) : (1 / (base * power(base + 1)));
+   return power === -1 ? (1 / base) : (1 / (base * pow(base + 1)));
  }
 
 }
