@@ -4,7 +4,7 @@
 
 function pow(base, power) {
   let pwr = power;
-  if (pwr === 0) return base;
+  if (pwr === 0) return 1;
   while (pwr > 1) {
     pwr -= 1;
     return (base *= pow(base, pwr));
