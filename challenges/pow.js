@@ -2,8 +2,36 @@
  * Use recursion!
  */
 
-function pow(base, power) {
-
+function pow(base, power, result = 1, negativeFlag = false) {
+  if (power === 0 && !negativeFlag) {
+    // power positive power
+    return result;
+  }
+  else if (power === 0 && negativeFlag) {
+    return 1/result;
+  }
+ 	
+  
+ // account for edge case when power is negative
+  if (power < 0){
+    negativeFlag = true;
+  }
+	  
+  
+	result = result * base;
+  
+  if (negativeFlag) {
+  	// for negative power
+    return pow(base, power+1, result, negativeFlag)  
+  }
+  else {  
+    // for positive power
+	  return pow(base, power-1, result, negativeFlag)  
+  }
+  
 }
 
-module.exports = pow;
+console.log(pow(3,2))
+console.log(pow(2,-2))
+
+// module.exports = pow;
