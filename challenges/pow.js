@@ -3,7 +3,30 @@
  */
 
 function pow(base, power) {
+    let value = base, runTimes = power;
+
+    if(power === 0){
+        return 1;
+    }else if(power < 0){
+        runTimes = Math.abs(power);
+    }
+
+    function f(n, times){
+        return value *= value;
+    }
+
+    while (runTimes > 1){
+        f(base, runTimes);
+        runTimes -= 1;
+    }
+
+    if (power < 0){
+        return 1/value;
+    }
+    return value;
 
 }
 
 module.exports = pow;
+
+//console.log(pow(10, 2));
