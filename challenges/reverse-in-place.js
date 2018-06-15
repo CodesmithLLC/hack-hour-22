@@ -13,9 +13,6 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function swap(array, idx1, idx2) {
-}
-
 function reverseInPlace(array) {
   const lastIndex = array.length - 1;
   const validKeys = Object.keys(array)
