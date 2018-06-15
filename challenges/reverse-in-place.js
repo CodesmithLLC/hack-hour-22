@@ -14,7 +14,27 @@
  */
 
 function reverseInPlace(array) {
-
+  let i = 0, j = array.length - 1;
+  
+  while (i < j) {
+    [array[i], array[j]] = [array[j], array[i]];
+    i++;
+    j--;
+  }
+  
+  return array;
 }
+
+/*
+const x = [1,2,3];
+console.log(x);
+console.log(x.reverse());
+console.log(x);
+
+const y = [1,2,3, 4];
+console.log(y);
+console.log(y.reverse());
+console.log(y);
+*/
 
 module.exports = reverseInPlace;
