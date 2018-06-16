@@ -41,7 +41,7 @@ function kthToLastNode(k, head) {
   }
   return follow.value;
   return first;
-};
+}
 
 const a = new Node('A');
 const b = new Node('B');
@@ -57,4 +57,4 @@ console.log(a);
 
 console.log(kthToLastNode(2, a));
 
-module.exports = { Node: Node, kthToLastNode: kthToLastNode };
+module.exports = { Node, kthToLastNode };
