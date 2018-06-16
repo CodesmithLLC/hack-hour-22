@@ -30,7 +30,7 @@ function kthToLastNode(k, head) {
   //   current.next = head;
   // }
 
-  let current = head;
+  let lead = head;
   let follow = head;
 
   for (let i = 0; i < k && lead; i++) {
