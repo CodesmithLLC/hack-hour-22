@@ -14,13 +14,10 @@
  */
 
 
- if (stepNumber === 9 && calculateWinner(squares) === null) {
-   'Game was a tie' + Restart game
- }
 
 function reverseInPlace(array) {
   let temp;
-  for (let i = 0, j = array.length - 1; i < j; i++ ) {
+  for (let i = 0, j = array.length - 1; i < j; i++) {
     temp = array[i];
     console.log(temp);
     array[i] = array[j];
