@@ -13,8 +13,29 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
 
+ if (stepNumber === 9 && calculateWinner(squares) === null) {
+   'Game was a tie' + Restart game
+ }
+
+function reverseInPlace(array) {
+  let temp;
+  for (let i = 0, j = array.length - 1; i < j; i++ ) {
+    temp = array[i];
+    console.log(temp);
+    array[i] = array[j];
+    array[j] = temp;
+    console.log(array[i]);
+
+    const element = array[i];
+    console.log(temp);
+    j--;
+  }
+  return array;
 }
+
+const testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(reverseInPlace(testArray));
 
 module.exports = reverseInPlace;
