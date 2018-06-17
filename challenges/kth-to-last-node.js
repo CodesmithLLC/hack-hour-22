@@ -22,25 +22,33 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  // let current = head;
-  // let arr = [];
+  
 
-  // while (current.next) {
-  //   arr.push(current.value);
-  //   current.next = head;
+  // let lead = head;
+  // let follow = head;
+
+  // for (let i = 0; i < k && lead; i++) {
+  //   lead = lead.next;
   // }
+  // while (lead && follow) {
+  //   lead = lead.next;
+  //   follow = follow.next;
+  // }
+  // return follow.value;
 
-  let lead = head;
-  let follow = head;
 
-  for (let i = 0; i < k && lead; i++) {
-    lead = lead.next;
+  let p1 = head; 
+  let p2 = head;
+  for (let i = 0; i < k; i++) {
+    if (p1 == null) return null;
+    p1 = p1.next;
   }
-  while (lead && follow) {
-    lead = lead.next;
-    follow = follow.next;
+
+  while (p1 !== null) {
+    p1 = p1.next;
+    p2 = p2.next;
   }
-  return follow.value;
+  return p2.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
