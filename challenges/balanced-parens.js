@@ -26,6 +26,45 @@
 
 function balancedParens(input){
 
+    // sanitize 
+    let sanitizedTxt = input.replace(/;/g, "");
+    sanitizedTxt = sanitizedTxt.replace(/\w/g, "")
+    sanitizedTxt = sanitizedTxt.replace(/'/g, "")
+    sanitizedTxt = sanitizedTxt.replace(/=/g, "")
+    sanitizedTxt = sanitizedTxt.replace(/\:/g, "");
+    sanitizedTxt = sanitizedTxt.replace(/\./g, "");
+
+
+    if (sanitizedTxt.length % 2 !== 0) return false;
+    let status = "status";
+    const array = sanitizedTxt.split('');
+    // let cache = { key0: {char: '{', status: 'open'} };
+
+    let cache = { key0: {char: '{', status: 'open'} };
+    console.log(cache.key0, cache.key0.char,  cache.key0.status)
+
+    // if second group closed first, return false
+    // get first char, put in cache
+    // get second char
+    // see if second char closes char,  remove from cache
+       // if second char doesn't close first char, put in cache
+
+    // always check if 2ndchar is closed
+
+    for (let i = 0; i < array.length; i++){
+
+        if (i >  Object.keys(cache).length ) {
+            if (cache['key'+i-1] === 'closed' &&  cache.key0.status === 'open')
+            return false;
+        } 
+    }
+
+    
 }
 
-module.exports = balancedParens;
+// let result = balancedParens(' var hubble = function() { telescopes.awesome();')
+let result = balancedParens('[(]{)}'); // false
+// let result =  balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
+
+console.log(result)
+// module.exports = balancedParens;
