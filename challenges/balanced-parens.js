@@ -48,32 +48,32 @@ function balancedParens(input) {
   // return true;
 
   // SOLUTION 2
-  // const opening = ['{', '[', '('];
-  // const closing = ['}', ']', ')'];
-  // const bracketStack = [];
-
-  // const inputArr = input.split('');
-  // for (let index = 0; index < inputArr.length; index += 1) {
-  //   const element = inputArr[index];
-  //   const openingIndex = opening.indexOf(element);
-  //   const closingIndex = closing.indexOf(element);
-  //   if (openingIndex > -1) bracketStack.push(openingIndex);
-  //   if ((closingIndex > -1) && (closingIndex !== bracketStack.pop())) return false;
-  // }
-  // return !(bracketStack.length > 0);
-
-  // SOLUTION 3
-  const bracketsObj = { '{': '}', '[': ']', '(': ')' };
+  const opening = ['{', '[', '('];
+  const closing = ['}', ']', ')'];
   const bracketStack = [];
 
   const inputArr = input.split('');
   for (let index = 0; index < inputArr.length; index += 1) {
     const element = inputArr[index];
-    const closingBracket = bracketsObj[element];
-    if (closingBracket) bracketStack.push(closingBracket);
-    if (element.match(/[}\])]/) && (element !== bracketStack.pop())) return false;
+    const openingIndex = opening.indexOf(element);
+    const closingIndex = closing.indexOf(element);
+    if (openingIndex > -1) bracketStack.push(openingIndex);
+    if ((closingIndex > -1) && (closingIndex !== bracketStack.pop())) return false;
   }
-  return !(bracketStack.length > 0);
+  return bracketStack.length === 0;
+
+  // SOLUTION 3
+  // const bracketsObj = { '{': '}', '[': ']', '(': ')' };
+  // const bracketStack = [];
+
+  // const inputArr = input.split('');
+  // for (let index = 0; index < inputArr.length; index += 1) {
+  //   const element = inputArr[index];
+  //   const closingBracket = bracketsObj[element];
+  //   if (closingBracket) bracketStack.push(closingBracket);
+  //   if (element.match(/[}\])]/) && (element !== bracketStack.pop())) return false;
+  // }
+  // return !(bracketStack.length > 0);
 }
 
 module.exports = balancedParens;
