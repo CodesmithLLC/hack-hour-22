@@ -24,8 +24,39 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input, index = 0){
+
+    let startBracketQueue = [];
+
+    const recurseBalParens = function (inputR, indexR) { 
+        if ( indexR > inputR.length - 1 && startBracketQueue.length === 0 ) return true;
+        else if ( indexR > inputR.length - 1 && startBracketQueue.length > 0 ) return false;
+
+        if ( input[index] !== '(' && input[index] !== ')' ) return recurseBalParens(inputR, indexR + 1);
+    
+        if ( inputR[indexR] === '(' ) {
+            startBracketQueue.push( '(' );
+            return recurseBalParens(inputR, indexR + 1);
+        }
+    
+        if ( inputR[indexR] === ')' && startBracketQueue.indexOf( '(' ) > -1 ) {
+            startBracketQueue.pop();
+            return recurseBalParens(inputR, indexR + 1);
+        }
+        else if ( inputR[indexR] === ')' && startBracketQueue.indexOf( '(' ) === -1 ) return false;    
+    
+        return true;
+
+    }
+    return recurseBalParens(input, index);
 
 }
+
+// console.log(balancedParens('('));
+// console.log(balancedParens('()'));
+// console.log(balancedParens(')('));
+// console.log(balancedParens('())'));
+console.log(balancedParens( '    yo: thisIsAwesome() )' ));
+console.log("here");
 
 module.exports = balancedParens;
