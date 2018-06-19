@@ -23,9 +23,22 @@
  *
  *
  */
-
 function balancedParens(input){
-
+	let count = 0;
+	let letters = input.split('');
+	if (0 !== letters.reduce((accumulator, letter) => {
+		if (accumulator < 0) return accumulator;
+		if (letter.indexOf('(') !== -1) {
+			accumulator++;
+		} else if (letter.indexOf(')') !== -1) {
+			accumulator--;
+		}
+		return accumulator;
+	}, 0)) {
+		return false;
+	};
+	return true;
 }
+
 
 module.exports = balancedParens;
