@@ -40,14 +40,16 @@ function balancedParens(input){
       }
     
     for (let i = 0; i<array.length; i++){
-      const index = array.indexOf(testCases[array[i]]);
-      if (index===-1) return false;
-      else {
-        array.splice(index,1);
-        array.splice(i,1);
-        i = -1;
+        if (testCases[array[i]]) {
+        const index = array.indexOf(testCases[array[i]]);
+        if (index===-1) return false;
+        else {
+            array.splice(index,1);
+            array.splice(i,1);
+            i = -1;
+            }
         }
-      }
+    }
      return true; 
 }
 
