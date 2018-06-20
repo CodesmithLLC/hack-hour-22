@@ -24,8 +24,24 @@
  *
  */
 
-function balancedParens(input){
+const parensMap = {
+  '(': ')',
+  '[': ']',
+  '{': '}',
+};
 
+function balancedParens(input) {
+  const parensStack = [];
+  for (let i = 0; i < input.length; i += 1) {
+    if (input[i].match(/[{[(]/)) {
+      parensStack.push(input[i]);
+    } else if (input[i].match(/[})\]]/)) {
+      if (input[i] !== parensMap[parensStack.pop()]) return false;
+    }
+  }
+  return parensStack.length === 0;
 }
 
 module.exports = balancedParens;
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false

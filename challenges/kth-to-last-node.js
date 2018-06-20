@@ -21,8 +21,20 @@ function Node(val) {
   this.next = null;
 }
 
-function kthToLastNode(k, head) {
+function kthToLastNode(k, head, top = true) {
+  if (k < 1) return undefined;
 
+  const capture = {
+    reverseIndex: 1,
+    value: undefined,
+  };
+  if (head.next !== null) {
+    Object.assign(capture, kthToLastNode(k, head.next, false));
+    capture.reverseIndex += 1;
+  }
+
+  if (k === capture.reverseIndex) capture.value = head.value;
+  return top ? capture.value : capture;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node, kthToLastNode };
