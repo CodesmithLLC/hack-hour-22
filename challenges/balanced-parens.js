@@ -43,5 +43,3 @@ function balancedParens(input) {
 }
 
 module.exports = balancedParens;
-console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
-console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
