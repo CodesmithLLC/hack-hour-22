@@ -17,16 +17,16 @@
  *
  */
 
-const getNumeral = (num, boundary, letter, nearestValue, letterForNearestValue) => {
+const getNumeral = (str, num, boundary, letter, nearestValue, letterForNearestValue) => {
   const repeat = Math.floor(num / boundary);
-  let romanStr = '';
+  let romanStr = str;
   let n = num % boundary;
 
   if (repeat > 0) {
-    romanStr = letter.repeat(repeat) + romanStr;
+    romanStr += letter.repeat(repeat);
   }
   if (n >= nearestValue) {
-    romanStr = `${letterForNearestValue}${romanStr}`;
+    romanStr += letterForNearestValue;
     n -= nearestValue;
   }
 
@@ -40,22 +40,20 @@ function romanNumeral(n, romanStr = '') {
 
   switch (true) {
     case n >= 999:
-      return romanStr + getNumeral(n, 1000, 'M', 900, 'CM');
+      return getNumeral(romanStr, n, 1000, 'M', 900, 'CM');
     case (n >= 499):
-      return romanStr + getNumeral(n, 500, 'D', 400, 'CD');
+      return getNumeral(romanStr, n, 500, 'D', 400, 'CD');
     case (n >= 99):
-      return romanStr + getNumeral(n, 100, 'C', 90, 'XC');
+      return getNumeral(romanStr, n, 100, 'C', 90, 'XC');
     case n >= 49:
-      return romanStr + getNumeral(n, 50, 'L', 40, 'XL');
+      return getNumeral(romanStr, n, 50, 'L', 40, 'XL');
     case n >= 9:
-      return romanStr + getNumeral(n, 10, 'X', 9, 'IX');
+      return getNumeral(romanStr, n, 10, 'X', 9, 'IX');
     case n >= 4:
-      return romanStr + getNumeral(n, 5, 'V', 4, 'IV');
+      return getNumeral(romanStr, n, 5, 'V', 4, 'IV');
     default:
-      return romanStr + getNumeral(n, 1, 'I');
+      return getNumeral(romanStr, n, 1, 'I');
   }
 }
 
 module.exports = romanNumeral;
-
-console.log(romanNumeral(8));
