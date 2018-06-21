@@ -81,4 +81,18 @@ function romanNumeral(n) {
 
   return total;
 }
+console.log(romanNumeral('I'));
+console.log(romanNumeral('II'));
+console.log(romanNumeral('III'));
+console.log(romanNumeral('IV'));
+console.log(romanNumeral('V'));
+console.log(romanNumeral('VI'));
+console.log(romanNumeral('VII'));
+console.log(romanNumeral('VIII'));
+console.log(romanNumeral('IX'));
+console.log(romanNumeral('X'));
+console.log(romanNumeral('XI'));
+console.log(romanNumeral('IXX'));
+console.log(romanNumeral('XX'));
+
 module.exports = romanNumeral;
