@@ -34,26 +34,47 @@ const getNumeral = (str, num, boundary, letter, nearestValue, letterForNearestVa
 };
 
 function romanNumeral(n, romanStr = '') {
-  if (n === 0) {
-    return romanStr;
-  }
+  let num = n;
+  let str = romanStr;
+  // Solution 1
+  // if (n === 0) {
+  //   return romanStr;
+  // }
 
-  switch (true) {
-    case n >= 900:
-      return getNumeral(romanStr, n, 1000, 'M', 900, 'CM');
-    case (n >= 400):
-      return getNumeral(romanStr, n, 500, 'D', 400, 'CD');
-    case (n >= 90):
-      return getNumeral(romanStr, n, 100, 'C', 90, 'XC');
-    case n >= 40:
-      return getNumeral(romanStr, n, 50, 'L', 40, 'XL');
-    case n >= 9:
-      return getNumeral(romanStr, n, 10, 'X', 9, 'IX');
-    case n >= 4:
-      return getNumeral(romanStr, n, 5, 'V', 4, 'IV');
-    default:
-      return getNumeral(romanStr, n, 1, 'I');
+  // switch (true) {
+  //   case n >= 900:
+  //     return getNumeral(romanStr, n, 1000, 'M', 900, 'CM');
+  //   case (n >= 400):
+  //     return getNumeral(romanStr, n, 500, 'D', 400, 'CD');
+  //   case (n >= 90):
+  //     return getNumeral(romanStr, n, 100, 'C', 90, 'XC');
+  //   case n >= 40:
+  //     return getNumeral(romanStr, n, 50, 'L', 40, 'XL');
+  //   case n >= 9:
+  //     return getNumeral(romanStr, n, 10, 'X', 9, 'IX');
+  //   case n >= 4:
+  //     return getNumeral(romanStr, n, 5, 'V', 4, 'IV');
+  //   default:
+  //     return getNumeral(romanStr, n, 1, 'I');
+  // }
+
+  // SOLUTION 2
+  const romanDict =
+  [
+    1000, 'M', 900, 'CM', 500, 'D',
+    400, 'CD', 100, 'C', 90, 'XC',
+    50, 'L', 40, 'XL', 10, 'X', 9, 'IX',
+    5, 'V', 4, 'IV', 1, 'I',
+  ];
+  for (let i = 0; num > 0 && i < romanDict.length; i += 2) {
+    while (num >= romanDict[i]) {
+      str += romanDict[i + 1];
+      num -= romanDict[i];
+    }
   }
+  return str;
 }
 
 module.exports = romanNumeral;
+
+console.log(romanNumeral(98));
