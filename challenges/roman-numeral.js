@@ -39,13 +39,13 @@ function romanNumeral(n, romanStr = '') {
   }
 
   switch (true) {
-    case n >= 999:
+    case n >= 900:
       return getNumeral(romanStr, n, 1000, 'M', 900, 'CM');
-    case (n >= 499):
+    case (n >= 400):
       return getNumeral(romanStr, n, 500, 'D', 400, 'CD');
-    case (n >= 99):
+    case (n >= 90):
       return getNumeral(romanStr, n, 100, 'C', 90, 'XC');
-    case n >= 49:
+    case n >= 40:
       return getNumeral(romanStr, n, 50, 'L', 40, 'XL');
     case n >= 9:
       return getNumeral(romanStr, n, 10, 'X', 9, 'IX');
