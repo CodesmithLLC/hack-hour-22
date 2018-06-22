@@ -25,7 +25,11 @@
  */
 
 function balancedParens(input){
-
+    return (input.includes('(') && input.match(/\(.*\)/gi) !== null) || (input.includes('{') && input.match(/\{.*\}/gi) !== null) || (input.includes('[') && input.match(/\[.*\]/gi) !== null); 
 }
 
 module.exports = balancedParens;
+
+console.log(balancedParens('[](){}')); // true
+console.log(balancedParens('[({})]')) ;   // true
+console.log(balancedParens('[(]{)}')); // false
