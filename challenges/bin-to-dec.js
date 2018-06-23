@@ -14,7 +14,15 @@
  */
 
 function binToDec(binary) {
+	if (binary.length === 0) return 0;
+	if (binary[0] == 1) return Math.pow(2, (binary.length - 1)) + binToDec(binary.slice(1));
+	else return binToDec(binary.slice(1));
+}
 
+function decToBin(decimal) {
+	if (decimal === 0) return '';
+	return decToBin(Math.floor(decimal / 2)) + (decimal % 2);
 }
 
 module.exports = binToDec;
+
