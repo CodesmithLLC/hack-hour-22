@@ -14,7 +14,11 @@
  */
 
 function binToDec(binary) {
-
+    // let digit = parseInt(binary, 2);
+    // return digit;
+    return binary.split('').reverse().reduce((x, y, i) => {
+        return (y === '1') ? x + Math.pow(2, i) : x;
+    }, 0);
 }
 
 module.exports = binToDec;
