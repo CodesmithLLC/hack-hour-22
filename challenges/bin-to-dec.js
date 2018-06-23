@@ -14,7 +14,12 @@
  */
 
 function binToDec(binary) {
-
-}
+    let sum = 0;
+    let array = binary.split('').reverse();
+    array.forEach((element, index)=>{
+      if (parseInt(element) !== 0) sum += Math.pow(2,index);
+      });
+    return sum;
+  }
 
 module.exports = binToDec;
