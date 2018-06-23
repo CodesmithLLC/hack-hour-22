@@ -29,3 +29,4 @@ const fizzbuzz = max => Array(max)
   .map((_, idx) => fizzBuzzFilter(idx + 1));
 
 module.exports = fizzbuzz;
+

@@ -33,3 +33,4 @@ function decToBase(number, base = 2) {
 }
 
 module.exports = binToDec;
+
