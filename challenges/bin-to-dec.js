@@ -14,7 +14,19 @@
  */
 
 function binToDec(binary) {
+  const binArr = binary.split('').reverse();
+  let result = 0;
+  let power = 1;
 
+  for(let i = binary.length; i > 0; i--) {
+    if (result === '1') {
+      result += parseInt(binary[i], 10) * power;
+      power *= 2
+    }
+  }
+  return result;
 }
+
+// could not get solution working, need to look over and work through again.
 
 module.exports = binToDec;
