@@ -1,28 +1,38 @@
-/**
- * Write a function that takes two parameters, an integer and the head of a
- * singly linked list, and returns the VALUE on the kth to last node in the list.
- *
- * const a = new Node('A');
- * const b = new Node('B');
- * const c = new Node('C');
- * const d = new Node('D');
- * const e = new Node('E');
- *
- * a.next = b;
- * b.next = c;
- * c.next = d;
- * d.next = e;
- *
- * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
- */
-
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function kthToLastNode(k, head) {
+  if (!(!Array.isArray(head) && typeof head === 'object' && !!head && Object.keys(head).filter(x => x === 'next').length)) return undefined;
 
+  function findLinkedListLength(head) {
+    if (!head.next) {
+      return 1;
+    }
+    return 1 + findLinkedListLength(head.next);
+  }
+
+  function returnNthNode(n, head) {
+    if (n === 1 || !head.next) {
+      return head;
+    }
+    return returnNthNode(n - 1, head.next);
+  }
+
+  let length = findLinkedListLength(head);
+
+  if (k >= length + 1) {
+    return undefined;
+  }
+
+  if (k < 1) {
+    return undefined;
+  }
+  return returnNthNode(length + 1 - k, head);
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = {
+  Node: Node,
+  kthToLastNode: kthToLastNode
+};
