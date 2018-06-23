@@ -14,7 +14,30 @@
  */
 
 function binToDec(binary) {
+  /*
+  1. split into an array. 
+  2. convert each entry into an integer 
+  3. initialize a sum 
+  4. while array length is > 0
+    5. if num is zero, shift and repeat
+    6. if num is a one, add 2^(n-1) to the sum, shift, repeat
+  7. return sum
+  */
 
+  const binArray = binary.split('').map(x => parseInt(x));
+
+  let decimalSum = 0;
+
+  while (binArray.length > 0) {
+    if (binArray[0] === 0) {
+      binArray.shift();
+    } else {
+      decimalSum += 2 ** (binArray.length - 1);
+      binArray.shift();
+    }
+  }
+  return decimalSum;
 }
+
 
 module.exports = binToDec;

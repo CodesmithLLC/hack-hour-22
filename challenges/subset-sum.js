@@ -9,7 +9,18 @@
  */
 
 function subsetSum(array, target) {
+  const size = array.length;
 
 }
+
+/*
+**Brute Force Method**
+1. find the sum of every subset of array 
+2. that means that in an array of length n, there will be 2^n subsets, including the empty set. 
+3. I need to find the sum of all subsets of length 1, length 2, length 3....length n (only one of those);
+4. 
+*/
+
+
 
 module.exports = subsetSum;

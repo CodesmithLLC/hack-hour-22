@@ -24,8 +24,19 @@
  *
  */
 
-function balancedParens(input){
+const arrayPalindrome = (arr) => {
+  if (arr.length <= 2) {
+    return arr[0] === arr[arr.length - 1];
+  } else {
+    return arr[0] === arr[arr.length - 1] && arrayPalindrome(arr.slice(1, -1));
+  }
+}
 
+function balancedParens(input){
+  const rightBrackets = ['(', '{', '['];
+  const leftBrackets = []
+  const bracketArray = input.split('').filter(x => brackets.includes(x));
+  return arrayPalindrome(bracketArray);
 }
 
 module.exports = balancedParens;
