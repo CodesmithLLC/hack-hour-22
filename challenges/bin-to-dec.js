@@ -14,10 +14,7 @@
  */
 
 function binToDec(binary) {
-  return binary.split('').reduce((acc, val, i) => {
-    const sum = ((2 ** i) * val);
-    return acc + sum;
-  }, 0);
+  return binary.split('').reduce((acc, val, i) => acc + ((2 ** i) * val), 0);
 }
 
 module.exports = binToDec;
