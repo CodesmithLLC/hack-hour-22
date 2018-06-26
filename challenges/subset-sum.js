@@ -9,26 +9,11 @@
  */
 
 function subsetSum(array, target) {
-  let ss = false;
-  for (let i = 0; i < array.length; i++) {
-    const elt1 = array[i];
-    for (let j = i + 1; j < array.length; j++) {
-      const elt2 = array[j];
-      console.log(elt1 + elt2);
-
-      if (elt1 + elt2 === target) {
-        console.log('got here');
-
-        ss = true;
-      }
-      if (elt1 + array.slice(j).reduce((acc, x) => acc + x) === target) {
-        ss = true;
-      }
-    }
-  }
-  return ss;
+  if (target === 0) return true;
+  if (target < 0 || array.length === 0) return false;
+  return subsetSum(array, target - array[0]) || subsetSum(array.slice(1), target);
 }
-console.log(subsetSum([8, 2, 4, 12], 13));
+console.log(subsetSum([3, 7, 5, 2], 5));
 
 // iterate through each item
 // on each item, look through it plus each other item
