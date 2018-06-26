@@ -11,7 +11,21 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  const stack = [];
+  const strippedStr = str
+    .toLowerCase()
+    .split(/[^a-z]+/);
+  strippedStr.forEach((word) => {
+    const trimmedWord = word.trim();
+    if (trimmedWord) {
+      if ((stack.slice(-1))[0] === trimmedWord.split('').reverse().join('')) {
+        stack.pop();
+      } else {
+        stack.push(trimmedWord);
+      }
+    }
+  });
+  return !stack.length;
 }
 
 module.exports = matchWord;
