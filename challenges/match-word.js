@@ -11,6 +11,9 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  if(str === ''){
+    return true;
+  }
   const newStr = str.replace(/[\W_]/g, "-").replace(/(^\-+|\-+$)/mg, '')
   const split = newStr.split('-');
   if (split.length === 1) {
@@ -26,10 +29,8 @@ function matchWord(str) {
     }
     return false;
   }
-  return true;
-
 }
-console.log(matchWord('__ENDDNE__'));
+console.log(matchWord(''));
 
 
 
