@@ -16,8 +16,10 @@
 function binToDec(binary, power = 0) {
   if (binary.length === 0) throw new Error('Need actual binary #');
   if (binary.length === 1) return (2 ** power) * binary;
-  return (((2 ** power) * binary.slice(-1))
-    + binToDec(binary.slice(0, -1), power + 1));
+  return (
+    ((2 ** power) * binary.slice(-1))
+    + binToDec(binary.slice(0, -1), power + 1)
+  );
 }
 
 const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
