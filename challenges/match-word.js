@@ -11,7 +11,15 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    let open = [];
+    let words = str.split(/[\W_]+/g);
+    words.forEach(word => {
+    		let close = word.split('').reverse().join('').toLowerCase();
+        if (word === '') return;
+        if (open[0] === close) open.shift();
+        else open.unshift(word.toLowerCase());
+    });
+    return open.length === 0;
 }
 
 module.exports = matchWord;
