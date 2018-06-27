@@ -3,6 +3,8 @@
  */
 
 function highestProduct(array) {
+    //Check for our edge cases before we do any computations.
+    if (array.length < 3 || !Array.isArray(array)) return 0;
     //Sort array from smallest to largest
     array.sort((a, b) => a - b);
     //only keep last three values since they are largest values in array
