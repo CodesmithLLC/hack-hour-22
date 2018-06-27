@@ -24,12 +24,12 @@ function binToDec(binary) {
   7. return sum
   */
 
-  const binArray = binary.split('').map(x => parseInt(x));
+  const binArray = binary.split('');
 
   let decimalSum = 0;
 
   while (binArray.length > 0) {
-    if (binArray[0] === 0) {
+    if (binArray[0] === '0') {
       binArray.shift();
     } else {
       decimalSum += 2 ** (binArray.length - 1);
@@ -38,6 +38,15 @@ function binToDec(binary) {
   }
   return decimalSum;
 }
+
+const binToDec2 = binary => {
+  return binary.split('').reduce((acc, char, index, array) => {
+    if (char === '1') acc += 2 ** (array.length - 1 - index);
+    return acc;
+  }, 0);
+}
+console.log(binToDec('11000111001100'));
+console.log(binToDec2('11000111001100'));
 
 
 module.exports = binToDec;
