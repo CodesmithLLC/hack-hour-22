@@ -20,6 +20,14 @@ function binToDec(binary) {
       if (parseInt(element) !== 0) sum += Math.pow(2,index);
       });
     return sum;
+
+    // if (!Array.isArray(binary)) binary = binary.split('');
+  
+    // if (binary.length === 1) {
+    //   if (binary[0] ==='1')return Math.pow(2, power);
+    //   else { return 0;} 
+    // }
+    // return parseInt(binToDec(binary.slice(-1), power)) + parseInt(binToDec(binary.slice(0, binary.length-1), power+= 1))
   }
 
 module.exports = binToDec;
