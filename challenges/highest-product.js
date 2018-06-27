@@ -6,7 +6,7 @@ function highestProduct(array) {
 
   // sort numbers and multiply the three largest integers in the array together
   let numsArr = [];
-  if(array.length > 3 || Array.isArray(array)) return 0;
+  if(array.length < 3 || Array.isArray(array)) return 0;
 
   // sort array into order from least to greatest
   const sortArr = array.sort((x, y) => {
