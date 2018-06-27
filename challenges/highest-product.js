@@ -7,17 +7,19 @@ function highestProduct(array, maxProduct = 0) {
   if (!(array instanceof Array) || array.length < 3) {
     return product;
   }
+  // Solution 1 for any 3 values in the array
   const firstMultiplier = array[0];
   for (let index = 1; index < array.length; index += 1) {
     const secondMultiplier = array[index];
     for (let jdex = index + 1; jdex < array.length; jdex += 1) {
       const thirdMultiplier = array[jdex];
       const newProduct = (firstMultiplier * secondMultiplier * thirdMultiplier);
-      if (Math.abs(newProduct) > Math.abs(product)) {
+      if (newProduct > product) {
         product = newProduct;
       }
     }
   }
+
   return highestProduct(array.slice(1), product);
 }
 
