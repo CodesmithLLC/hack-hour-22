@@ -3,6 +3,9 @@
  */
 
 function highestProduct(array) {
+  if (array.length < 3) return 0;
+  if (!Array.isArray(array)) return 0;
+
   const resultArr = [];
   const sorted = array.sort((a, b) => a - b);
 
@@ -30,7 +33,7 @@ function highestProduct(array) {
 
     }
     resultArr.push(Math.max(...sorted))
-    console.log([sorted, resultArr])
+    // console.log([sorted, resultArr])
   } else {
     for (let i = 0; i < 3; i++) {
       resultArr.push(Math.max(...sorted));
