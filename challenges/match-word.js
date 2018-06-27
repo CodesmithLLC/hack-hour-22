@@ -26,6 +26,8 @@ function matchWord(str) {
     }
   });
   return !stack.length;
+
+  // Solution 2 try using match
 }
 
 module.exports = matchWord;
