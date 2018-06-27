@@ -12,7 +12,10 @@ function highestProduct(array, maxProduct = 0) {
     const secondMultiplier = array[index];
     for (let jdex = index + 1; jdex < array.length; jdex += 1) {
       const thirdMultiplier = array[jdex];
-      product = Math.max(product, (firstMultiplier * secondMultiplier * thirdMultiplier));
+      const newProduct = (firstMultiplier * secondMultiplier * thirdMultiplier);
+      if (Math.abs(newProduct) > Math.abs(product)) {
+        product = newProduct;
+      }
     }
   }
   return highestProduct(array.slice(1), product);
