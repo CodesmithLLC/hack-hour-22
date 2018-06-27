@@ -11,7 +11,16 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  arr = str.split(/[^A-Za-z]+/).filter(x => x.length > 0)
+  for (let i = arr.length - 1; i >= 0; i -= 1) {
+    if (arr.includes(arr[i].split('').reverse().join(''))) {
+      arr.pop();
+      arr.splice(arr.indexOf(arr[i].split('').reverse().join('')), 1);
+    }
+  }
+  return  arr.length, arr;
 }
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+
 
 module.exports = matchWord;
