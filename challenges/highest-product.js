@@ -3,8 +3,8 @@
  */
 
 function highestProduct(array) {
-
+  array = array.sort().reverse();
+  return array.reduce((output, value, index) => (index < 3 ? output *= value : output *= 1), 1);
 }
-
 
 module.exports = highestProduct;
