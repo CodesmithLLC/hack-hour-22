@@ -15,8 +15,7 @@ function highestProduct(array, maxProduct = 0) {
       product = Math.max(product, (firstMultiplier * secondMultiplier * thirdMultiplier));
     }
   }
-  highestProduct(array.slice(1), product);
-  return product;
+  return highestProduct(array.slice(1), product);
 }
 
 module.exports = highestProduct;
