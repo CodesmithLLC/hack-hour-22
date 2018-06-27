@@ -11,10 +11,15 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  if (!str) return true;
   let words = str.replace(/^[^a-z]+/i, "").toLowerCase();
+  console.log(words)
   const wordArray = words.match(/[a-z]+/ig);
+  console.log(wordArray);
   if (wordArray.length < 2) return false;
   return (wordArray[0]) === (wordArray[wordArray.length - 1].split('').reverse().join(''));
 }
+
+console.log(matchWord('%%$@$while  trfy ! yrt  for if_fi rof #*#  elihw'))
 
 module.exports = matchWord;
