@@ -2,15 +2,11 @@
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
 
-// find all negatives
-// find highest two negatives
-// find highest three positives
-// if negatives product higher than the product of the lower two positives, return highest positive and both negatives
-
 function highestProduct(array) {
+  if (array.constructor.name !== 'Array') return 0;
   const sorted = array.sort((a, b) => a - b);
   const highestPos = sorted.slice(-3);
-  if (highestPos.length < 3) return undefined;
+  if (highestPos.length < 3) return 0;
   const highestNeg = sorted.filter(x => x < 0).slice(0, 2);
   if (highestNeg.length < 2) return highestPos.reduce((total, x) => total * x);
   if (!highestPos.filter(x => x < 0).length) {
@@ -29,6 +25,12 @@ function highestProduct(array) {
   return highestPos.reduce((total, x) => total * x);
 }
 
-// console.log(highestProduct([-5,-1, -2, -3, 12, 1, 2,1,3,8]));
-
 module.exports = highestProduct;
+
+function highestProduct(array, iteration = 0) {
+  if (iteration === 3) {
+    return array[0]};
+  return array[0] * highestProduct(array.slice(1), iteration + 1) || highestProduct(array.slice(1), iteration + 1);
+}
+
+console.log(highestProduct([3, 8]));
