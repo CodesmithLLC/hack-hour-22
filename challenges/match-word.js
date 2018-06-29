@@ -11,7 +11,12 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  if(str.length === 0) return true;
 
+  // loop from begining to end to find matches
+  for (let i = 0, j = str.length-1; i < str.length, j >= 0; i++, j--) {
+    str[i].match((/^[A-z]+$/i))
+  }
 }
 
 module.exports = matchWord;

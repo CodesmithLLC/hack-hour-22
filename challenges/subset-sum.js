@@ -9,7 +9,9 @@
  */
 
 function subsetSum(array, target) {
-
+  let add = (x, y) => x + y;
+  if (array.reduce(add, 0) === target) return true;
+  // insert slice and dice logic
 }
 
 module.exports = subsetSum;

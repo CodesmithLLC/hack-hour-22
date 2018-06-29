@@ -11,6 +11,15 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (l1.length === 0) return l2;
+  if (l2.length === 0) return l1;
+
+  let l1 = link1
+  let l2 = link2
+
+  while(link1 && link2)
+
+
 };
 
 module.exports = {Node: Node, zip: zip};
