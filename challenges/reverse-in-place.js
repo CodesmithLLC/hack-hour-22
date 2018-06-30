@@ -27,3 +27,16 @@ module.exports = reverseInPlace;
 // console.log(reverseInPlace([1, 2, 3, 4, 5]));
 // console.log(reverseInPlace([]));
 // console.log(reverseInPlace([1, 2, 3, 4, 5, 6]));
+
+
+// let reverseInPlace = (array) => {
+//     let temp;
+//     for (let i = 0, j = array.length - 1; i < j; i++ , j--) {
+//         console.log(`element at index ${i} is ==>${array[i]}<== element at index ${j} is ==>${array[j]}<==`);
+//         temp = array[i];
+//         array[i] = array[j];
+//         array[j] = temp;
+//         console.log(`new array ${array}`)
+//     }
+//     return array;
+// }
