@@ -11,6 +11,8 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+	if (!l1) return l2;
+	if (!l2) return l1;
 	if ((l1.next === null && l2.next === null) || l1.next === null) {
 		l1.next === l2;
 		return;
@@ -26,6 +28,7 @@ function zip(l1, l2) {
 		l2.next = temp1;
 		zip(temp1, temp2);
 	}
+	return l1;
 };
 
 
