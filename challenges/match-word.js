@@ -11,7 +11,9 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    let newStr = str.replace(/[^a-z]/gi, '').split('');
+    let anothaOne = newStr.reverse().join('');
+    return newStr === anothaOne ? true : false;
 }
 
 module.exports = matchWord;

@@ -9,7 +9,28 @@
  */
 
 function subsetSum(array, target) {
+    function add(a,b) { return a + b; };
 
+    function fork(index, t) {
+        let r = (result[0] || []).reduce(add, 0);
+        let s = t.reduce(add, 0);
+        if (index === array.length || s > target) {
+            if (s <= target && t.length && r <= s) {
+                if (r < s) {
+                    result = [];
+                }
+                result.push(t);
+            }
+            return;
+        }
+        fork(index + 1, t.concat(array[index]));
+        fork(index + 1, t);
+    }
+    let result = [];
+    fork(0, []);
+    return result;
 }
+
+
 
 module.exports = subsetSum;
