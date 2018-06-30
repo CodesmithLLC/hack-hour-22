@@ -10,15 +10,13 @@ function Node(val) {
 function zip(link1, link2) {
   if (!link1) return link2;
   if (!link2) return link1;
-
-
   let head = link1;
   let temp = link1;
 
   //now that the head of link1 has been preserved, we can re-assign it to the next property.
   link1 = link1.next;
 
-  while(link1 && link2) {
+  while (link1 && link2) {
 
     temp.next = link2;
     link2 = link2.next;
@@ -32,4 +30,4 @@ function zip(link1, link2) {
 };
 
 
-module.exports = {Node: Node, zip: zip};
+module.exports = { Node: Node, zip: zip };
