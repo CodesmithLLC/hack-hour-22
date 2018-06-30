@@ -30,3 +30,13 @@ function pow(base, power) {
 module.exports = pow;
 
 //console.log(pow(-2, 3));
+
+
+// function pow(base, power) {
+//     // Base case
+//     if (power === 0) return 1;
+//     // Negative powers
+//     if (power < 0) return 1 / pow(base, -power);
+//     // Recursive case
+//     return base * pow(base, power - 1);
+//   }

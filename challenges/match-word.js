@@ -3,15 +3,21 @@
 //takes a string and returns true if every word is closed by its backwards counterpart. Words must be separated by space or 
 //punctuation.
 
-// matchWord('__END_DNE-----');  -> true
-// matchWord('__ENDDNE__');  -> false       (not separated by a space)
-// matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
-// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
-// matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
-// matchWord('');  -> true
+matchWord('__END_DNE-----');  //-> true
+matchWord('__ENDDNE__');  //-> false       (not separated by a space)
+matchWord('IF()()fi[]');  //-> true        (should be case-insensitive)
+matchWord('for__if__rof__fi');  //-> false     not properly closed. like ( [) ] 
+matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  //-> true
+matchWord('');  //-> true
 
 function matchWord(str) {
+    let str1 = str.match(/[a-zA-Z]+/)[0];
 
+    let strArray = []
+    strArray.push(str1);
+    let newStr = str.slice(str.match(/[\*a-zA-Z]+/).index+ str1.length);
+    let str2 = newStr.match(/[\*a-zA-Z]+/)[0];
+    console.log(str1, str2);
 }
 
 module.exports = matchWord;

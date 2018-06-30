@@ -55,3 +55,17 @@ module.exports = {Node: Node, kthToLastNode: kthToLastNode};
 // d.next = e;
  
 // console.log(kthToLastNode(6, a)); //-> returns 'D' (the value on the second to last node)
+
+
+// function kthToLastNode(k, head) {
+//   var lead = head;
+//   var follow = head;
+//   for (var i = 0; i < k && lead; i++) {
+//     lead = lead.next;
+//   }
+//   while (lead && follow) {
+//     lead = lead.next;
+//     follow = follow.next;
+//   }
+//   return follow.value;
+// }
