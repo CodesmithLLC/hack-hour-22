@@ -7,7 +7,25 @@
  */
 
 function Stack() {
-  // body...
+  this.storage = {};
+  this.index = 0;
 }
+
+Stack.prototype.push = function(value) {
+  this.storage[this.index] = value;
+  this.index++
+}
+
+Stack.prototype.pop = function() {
+  let deletedItem = this.storage[this.index - 1];
+  delete this.storage[this.index - 1];
+  this.index--;
+  return deletedItem;
+}
+
+Stack.prototype.getMax = () => {
+  return this.storage.reduce((a, b) => Math.max(a, b))
+};
+
 
 module.exports = Stack;
