@@ -29,4 +29,61 @@ class Stack {
   }
 }
 
+
+SOLUTION:
+
+function Stack() {
+  this.length = 0
+  this.store = {}
+  this.max = {
+    val: Number.NEGATIVE_INFINITY
+  }
+}
+
+Stack.prototype.setNewMax = function () {
+  for (let i in this.store) {
+    if (this.store[i] > this.max.val) {
+      this.max.val = this.store[i]
+      this.max.index = i
+    }
+  }
+}
+
+Stack.prototype.resetMax = function () {
+  this.max.val = Number.NEGATIVE_INFINITY
+  this.max.index = -1
+  return
+}
+
+Stack.prototype.push = function (v) {
+  if (v > this.max.val) {
+    this.max.index = this.length
+    this.max.val = v
+  }
+  this.store[this.length] = v
+  this.length++
+  return this.length
+}
+
+Stack.prototype.pop = function () {
+  let popped;
+  if (this.length === 0) return undefined;
+  else {
+    popped = this.store[this.length - 1]
+    if (popped === this.max.val) {
+      this.resetMax()
+    }
+    delete this.store[this.length - 1]
+    this.setNewMax()
+  }
+  this.length -= 1
+  return popped
+}
+
+Stack.prototype.getMax = function () {
+  return this.length === 0
+    ? undefined
+    : this.max.val
+}
+
 module.exports = Stack;
