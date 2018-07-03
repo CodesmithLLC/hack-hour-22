@@ -11,21 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  // while (l1 !== null && l2 !== null) {
-  //   if (l1.value <= l2.value) {
-  //     previous.next = l1;
-  //     l1 = l1.next;
-  //   } else {
-  //     previous.next = l2;
-  //     l2 = l2.next;
-  //   }
-  //   previous = previous.next;
-  // }
-  // // once we reach end of a linked list, append the other list because it's sorted
-  // if (l1 === null) { previous.next = l2; }
-  // if (l2 === null) { previous.next = l1 }
 
-  // return l3.next;
   if (!l1) return l2;
   if (!l2) return l1;
 
