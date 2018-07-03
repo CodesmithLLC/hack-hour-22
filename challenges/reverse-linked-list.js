@@ -9,12 +9,31 @@
  */
 
 function Node(value) {
-    this.value = value;
-    this.next = null;
+  this.value = value;
+  this.next = null;
 }
+
+a = new Node(1)
+b = new Node(2)
+c = new Node(3)
+d = new Node(4)
 
 function reverseLinkedList(head) {
+  let curr = head;
+  let prev = null;
+  let nextNode = null;
 
+  while(curr) {
+    nextNode = curr.next
+    curr.nexxt = prev;
+
+    prev = curr;
+    curr = nextNode;
+  }
+  return prev;
 }
+
+let newHead = reverseLinkedList(a);
+console.log("The new head is:", newHead);
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
