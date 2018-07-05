@@ -13,7 +13,16 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+ const highestPrice = Math.max(...stock_prices_yesterday);
+ const lowestPrice = Math.min(...stock_prices_yesterday);
+
+ const profit = highestPrice-lowestPrice;
+ if (profit === undefined || profit === 0 || isNaN(profit)) return 0;
+ 
+ 
 
 }
 
+const prices = [1, 2 , 'b', 900, 4, 1000, 3, 9]
+console.log(bestProfit(prices));
 module.exports = bestProfit;
