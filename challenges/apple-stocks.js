@@ -12,8 +12,25 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+const makeComparator = price => ({ buy: price, sell: -Infinity });
 
+function bestProfit(stocks) {
+  if (!(stocks instanceof Array) || stocks.length < 2) return 0;
+
+  const comparators = [];
+  const prices = [Infinity, ...stocks, -Infinity];
+  for (let i = 1; i < prices.length; i += 1) {
+    const [last, curr, next] = prices.slice(i - 1, i + 2);
+    if (curr < last && curr < next) {
+      comparators.push(makeComparator(curr));
+    }
+    if (curr > last && curr > next) {
+      comparators.forEach((comparator) => {
+        comparator.sell = Math.max(curr, comparator.sell);
+      });
+    }
+  }
+  return Math.max(...comparators.map(c => c.sell - c.buy), 0);
 }
 
 module.exports = bestProfit;

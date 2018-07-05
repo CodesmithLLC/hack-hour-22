@@ -15,6 +15,7 @@ function Node(value) {
 
 function reverseLinkedList(node, lastNode = null) {
   if (!(node instanceof Node)) return null;
+
   const temp = node.next;
   node.next = lastNode;
   if (temp === null) return node;
