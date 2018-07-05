@@ -28,5 +28,3 @@ function bestProfit(stock_prices_yesterday) {
 }
 
 module.exports = bestProfit;
-
-console.log(bestProfit(stock_prices_yesterday));
