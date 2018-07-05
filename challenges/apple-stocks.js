@@ -13,7 +13,15 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  //store closing price (should be index 0)
+  //loop through input array, map by subtracting closing price - current price
+  //math.max on new array of differences
+  //check that math.max > 0 && input is valid for net profit
 
+  let closingPrice = stock_prices_yesterday[0];
+  let profitsAndLosses = stock_prices_yesterday.map((el, i) => el - closingPrice);
+  let bestProfitOrLoss = Math.max(...profitsAndLosses);
+  return bestProfitOrLoss <= 0 || !bestProfitOrLoss ? 0 : bestProfitOrLoss;
 }
 
 module.exports = bestProfit;
