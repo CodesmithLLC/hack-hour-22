@@ -12,8 +12,25 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+let appleStock = [185, 190, 180, 170, 200, 225];
 
+const bestProfit = (stock_prices_yesterday) => {
+  let minVal = stock_prices_yesterday.shift();
+  let maxProfit = 0;
+
+  for(let i = 0; i < stock_prices_yesterday.length; i++) {
+    if (stock_prices_yesterday[i] < minVal) {
+      minVal = stock_prices_yesterday[i];
+    }
+    if (stock_prices_yesterday[i] > minVal) {
+      if (stock_prices_yesterday[i] - minVal > maxProfit) {
+        maxProfit = stock_prices_yesterday[i] - minVal;
+      }
+    }
+  }
+  return maxProfit;
 }
+
+console.log(bestProfit(appleStock));
 
 module.exports = bestProfit;
