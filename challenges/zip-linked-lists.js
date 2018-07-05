@@ -11,6 +11,13 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  const mergedList = new Node( val ? l1.value : l2.value);
+    while (l2.next) {
+       
+      
+    }
+    return l1;
+
 };
 
 module.exports = {Node: Node, zip: zip};
