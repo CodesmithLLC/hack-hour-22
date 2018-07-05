@@ -13,7 +13,20 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+	if (stock_prices_yesterday.length === 0) return 0;
+	let sorted = stock_prices_yesterday.slice().sort((a, b) => {
+		return a - b;
+	});
+	let low = sorted[0];
+	let high = sorted[sorted.length - 1];
+	let lowI = stock_prices_yesterday.indexOf(low);
+	let highI = stock_prices_yesterday.indexOf(high);
+	if (lowI < highI) return high - low;
+	let beforeH = bestProfit(stock_prices_yesterday.slice(0, highI));
+	let afterL = bestProfit(stock_prices_yesterday.slice(lowI));
+	return (beforeH > afterL) ?  beforeH :  afterL;
 }
 
 module.exports = bestProfit;
+
+console.log(bestProfit(stock_prices_yesterday));
