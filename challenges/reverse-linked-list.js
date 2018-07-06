@@ -14,6 +14,10 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    const currentNode = {
+
+    }
+    const upcomingNode = {}``````````
 
 }
 

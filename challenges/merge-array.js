@@ -15,6 +15,25 @@
 
 function mergeArrays(arr1, arr2) {
 
+  const longArray = arr1.length > arr2.length ? arr1 : arr2;
+  const shortArray = arr1.length > arr2.length ? arr2 : arr1;
+
+  const merged = [];
+
+  while (longArray.length > 0) {
+    if (longArray[0] <= shortArray[0] || shortArray.length === 0) {
+      merged.push(longArray[0]);
+      longArray.shift();
+    } else {
+      merged.push(shortArray[0]);
+      shortArray.shift();
+    }
+  }
+  return merged;
 }
+
+var my_array = [3, 4, 6, 10, 11, 15, 21];
+var another_array = [1, 5, 8, 12, 14, 19];
+console.log(mergeArrays(my_array, another_array));
 
 module.exports = mergeArrays;
