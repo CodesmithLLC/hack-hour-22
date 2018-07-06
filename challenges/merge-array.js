@@ -13,8 +13,12 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
 
+const mergeArrays = (arr1, arr2) => {
+  let mergedArr = arr1.concat(arr2);
+  return mergedArr.sort((a, b) => {
+    return a - b;
+  })
 }
 
 module.exports = mergeArrays;
