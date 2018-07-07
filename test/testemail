@@ -1,0 +1,6 @@
+#!/bin/bash
+export COHORT=4;
+export TRAVIS_COMMIT=436c1bec556e50a7438af9edb0c1fe08a47576f8;
+export TRAVIS_PULL_REQUEST=438;
+export NODE_ENV=test;
+node test/run-tests.js && echo '""' > test/output.json
