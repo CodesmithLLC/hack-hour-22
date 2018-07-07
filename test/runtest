@@ -1,0 +1,12 @@
+#!/bin/bash
+c_red='\e[1;31m'
+c_reset='\e[0m'
+
+testfile="test/tests/$1-test.js"
+
+if [[ ! -f $testfile ]]; then 
+  echo -e "${c_red}error: didn't find a file $testfile${c_reset}" >&2
+  exit 1
+fi
+echo running $testfile
+node_modules/.bin/mocha -t 5000 $testfile
