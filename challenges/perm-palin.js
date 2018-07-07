@@ -10,7 +10,10 @@
  */
 
 function permPalin(str) {
-	
+	let letters = str.split('');
+	let unique = Array.from(new Set(letters));
+	return (unique.length === Math.ceil(letters.length / 2));
 }
 
 module.exports = permPalin;
+
