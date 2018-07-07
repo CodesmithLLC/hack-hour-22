@@ -12,8 +12,22 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4){
-
+function commonElements(...arrays) {
+  const sets = arrays.map(array => new Set(array));
+  
+  const finalSet = sets.reduce((acc, set) => {
+    const result = new Set();
+    for (const element of acc) {
+      if (set.has(element)) result.add(element);
+    }
+    
+    return result;
+  });
+  
+  return Array.from(finalSet);
 }
+
+// console.log(commonElements([1,2,3], [2,3,4,5]));
+
 
 module.exports = commonElements;
