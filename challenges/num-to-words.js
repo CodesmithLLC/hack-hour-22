@@ -13,7 +13,7 @@
  */
 
 function numToWords(num) {
-
+  // no idea how to approach this question
 }
 
 module.exports = numToWords;
