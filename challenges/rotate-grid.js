@@ -16,8 +16,19 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
+const rotateGrid = (grid, n) => {
+  let firstArr = [];
+  let secondArr = [];
 
+  for (let j = 0; j < n; j++) {
+    for (let i = n; i > 0; i--) {
+      firstArr.push(grid[i-1][j])
+    }
+    secondArr.push(firstArr)
+    firstArr = [];
+  }
+  return secondArr;
 }
+
 
 module.exports = rotateGrid;
