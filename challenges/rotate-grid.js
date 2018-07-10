@@ -17,6 +17,16 @@
  */
 
 function rotateGrid(grid, n) {
+	let i = n - 1;
+	let output = [];
+	for (let x = i; x >= 0; x--) {
+		let sub = [];
+		for (let y = i; y >= 0; y--) {
+			sub.push(grid[y][x])
+		}
+		output.unshift(sub);
+	}
+	return output;
 
 }
 
