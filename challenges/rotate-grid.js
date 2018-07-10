@@ -20,9 +20,8 @@ function rotateGrid(grid, n) {
   for (let i = 0; i < n; i += 1) {
     for (let j = 0; j < i; j += 1) {
       const temp = grid[i][j];
-      grid[i][j] = grid[n - 1 - i][n - 1 - j];
-      grid[n - 1 - i][n - 1 - j] = temp;
-      console.log('new grid', grid);
+      grid[i][j] = grid[j][i];
+      grid[j][i] = temp;
     }
   }
   return grid;
