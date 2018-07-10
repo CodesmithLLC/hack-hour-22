@@ -13,7 +13,8 @@
  */
 
 function numToWords(num) {
-
+  const ones = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+  const teens = 
 }
 
 module.exports = numToWords;
