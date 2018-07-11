@@ -17,7 +17,29 @@
  */
 
 function rotateGrid(grid, n) {
+    // console.log(grid, n)
+    let newArr =[];
+    console.log(newArr);
+    let z = 0;
+    console.log(newArr[0], "NEWARR")
 
+    for (let x = 0; x < grid.length; x++){
+        let innerArr = []
+        for ( let y = 0; y < grid[x].length; y++){
+        console.log(grid[y][x]);
+        innerArr.unshift(grid[y][x]);
+        }
+        newArr.push(innerArr);
+        z++
+
+    }
+        return newArr;
 }
 
+sampleGrid =        [   [1, 2, 3],
+                        [4, 5, 6],
+                        [7, 8, 9]  ]
+
+                        
+console.log(rotateGrid(sampleGrid, 3));
 module.exports = rotateGrid;
