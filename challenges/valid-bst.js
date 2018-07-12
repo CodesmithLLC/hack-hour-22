@@ -12,12 +12,15 @@ function BinaryTree(val) {
   this.right = null;
 }
 
+function inOrder(tree) {
+  const leftSide = tree.left !== null ? inOrder(tree.left) : [];
+  const rightSide = tree.right !== null ? inOrder(tree.right) : [];
+  return [...leftSide, tree.value, ...rightSide];
+}
+
 function validBST(tree) {
-  const validLeft = tree.left === null || tree.left.value < tree.value;
-  const validRight = tree.right === null || tree.right.value > tree.value;
-  const checkLeft = tree.left === null || validBST(tree.left);
-  const checkRight = tree.right === null || validBST(tree.right);
-  return validLeft && validRight && checkLeft && checkRight;
+  const traversal = inOrder(tree);
+  return traversal.slice(1).every((val, idx) => val > traversal[idx]);
 }
 
 module.exports = { BinaryTree, validBST };
