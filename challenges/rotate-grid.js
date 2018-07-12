@@ -22,6 +22,7 @@ function rotateGrid(grid, n) {
       const temp = grid[i][j];
       grid[i][j] = grid[j][i];
       grid[j][i] = temp;
+
     }
   }
   return grid;

@@ -13,7 +13,21 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
+    // we will traverse the tree in order 
+    // if the current node is not greater than or equal to previous node, we can break and return false 
+    // if not, we'll return true 
+    function inorder(node) {
+        const nodes = [];
+        if (node) {
+            inorder(node.left);
+            nodes.push(node.value);
+            inorder(node.right);
+        }
+        for (let i = 0; i < nodes.length - 1; i += 1) {
+            if (nodes[i] > nodes[i + 1]) return false;
+        }
+        return true;
+    }
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
