@@ -17,7 +17,34 @@
  */
 
 function rotateGrid(grid, n) {
-
+    grid = grid.reduce((acc, current) =>{
+        return acc.concat(current);
+    });
+    
+    grid.forEach((element, index) => {
+      if (!Array.isArray(element)){
+        const array =[];
+        array.push(grid[index + n - 1]);
+        array.push(element);
+        grid[index +n -1] = array;
+        }
+      else if (Array.isArray(element)){
+        const array =[];
+        array.push(grid[index + n - 1]);
+        array.push(element[0]);
+        grid[index +n -1] = array;
+        grid[index] = element[1];
+        }  
+      });
+    return grid;  
 }
+
+before=  [   [1, 2, 3], [4, 5, 6], [7, 8, 9]  ];
+
+console.log(rotateGrid(before, 3));
+
+
+
+
 
 module.exports = rotateGrid;
