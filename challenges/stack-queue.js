@@ -4,8 +4,22 @@
 
 
 function Stack() {
-
+   this.storage = {};
+   this.index = 0;
 }
+
+Stack.prototype.push = function (val) {
+   this.storage[this.index] = value;
+   this.index++;
+};
+
+Stack.prototype.pop = function () {
+   const lastElement = this.storage[this.index - 1];
+   delete this.storage[this.index - 1];
+   this.index--;
+   return lastElement;
+};
+
 
 
 /**
@@ -14,7 +28,13 @@ function Stack() {
 
 
 function Queue() {
-
+   this.storage = {};
+   this.index = {};
 }
 
-module.exports = {Stack: Stack, Queue: Queue};
+Queue.prototype.enqueue = function (value) {
+   this.storage[this.index] = value;
+   this.index++;
+}
+
+module.exports = { Stack: Stack, Queue: Queue };
