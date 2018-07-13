@@ -8,7 +8,22 @@
  */
 
 function gcd(a, b) {
-
+  if (a > b)
+    return GCD(a, b);
+  else
+    return GCD(b, a);
 }
+
+function GCD(a, b) {
+  const r = a % b;
+  
+  if (r === 0)
+    return b;
+  else
+    return GCD(b, r);
+}
+
+// console.log(gcd(40, 16));
+// console.log(gcd(18, 42));
 
 module.exports = gcd;
