@@ -30,4 +30,16 @@ function zip(link1, link2) {
 };
 
 
+// Recursive approach
+function zip(l1, l2) {
+  // Base case: if either node is null, return remaining nodes from other list
+  if (!l1) return l2;
+  if (!l2) return l1;
+
+  // Recursive case: reassign l1's next to be a zipped list that starts at l2
+  l1.next = zip(l2, l1.next);
+  return l1;
+}
+
+
 module.exports = { Node: Node, zip: zip };

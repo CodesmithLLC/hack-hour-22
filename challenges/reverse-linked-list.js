@@ -28,4 +28,18 @@ function reverseLinkedList(head) {
     return head;
 }
 
+
+function reverseLinkedList(head) {
+    if (!head || !head.next) return head;
+
+    let h = head;
+    let t = h.next;
+    let end = reverseLinkedList(t);
+
+    h.next.next = h;
+    h.next = null;
+
+    return end;
+}
+
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};

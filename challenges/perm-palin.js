@@ -23,7 +23,7 @@ function palindrome(string) {
 
 function permPalin1(str) {
   let unmatched = new Set();
-  str.split('').forEach( char => {
+  str.split('').forEach(char => {
     if (unmatched.has(char))
       unmatched.delete(char);
     else
@@ -44,7 +44,7 @@ function permPalin(str) {
     output[newString[i]] = ++output[newString[i]] || 1;
     console.log(output)
   }
-  for (const key in output) { 
+  for (const key in output) {
     if (output[key] % 2 === 1) numOdd++;
     if (numOdd > 1) return false;
   }
@@ -55,7 +55,7 @@ function newPermPalin(str) {
   const map = [];
   let count = 0;
   for (let i = 0; i < str.length; i++) {
-     map.push(str[1]);
+    map.push(str[1]);
 
   }
 }
@@ -64,5 +64,25 @@ console.log(permPalin('abAbe'));
 // console.log(permPalin('cbaba'));
 // console.log(permPalin('cbac'));
 // console.log(permPalin('ebacbace'))
+
+
+function permPalin(str) {
+  let result = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase().split('');
+  const hash = result.reduce((accum, curr) => {
+    // if doesnt exist, set value to 1.
+    if (accum[curr] === undefined) accum[curr] = 1;
+    // otherwise set prop of obj to curr with a value of 1
+    else delete accum[curr];
+    return accum;
+  }, {});
+  return Object.keys(hash).length < 2;
+}
+
+
+console.log(permPalin('A man, a plan, a canal: Panama'));
+console.log(permPalin('cbaba'));
+console.log(permPalin('cbac'));
+console.log(permPalin('a'));
+
 
 module.exports = permPalin;

@@ -33,6 +33,11 @@ const binToDec = (binary) => {
   }, 0)
 }
 
+let binToDec = (binary) => {
+  return binary.split('').reduce((total, digit, i) => {
+    return (digit === '1') ? total += Math.pow(2, binary.length - (i + 1)) : total;
+  }, 0);
+}
 
 function binToDec(binary) {
   let decimal = 0;

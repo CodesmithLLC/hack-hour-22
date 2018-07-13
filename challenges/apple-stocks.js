@@ -24,4 +24,16 @@ function bestProfit(stock_prices_yesterday) {
     return best;
 }
 
+
+function bestProfit(prices) {
+  if (!Array.isArray(prices) || prices.length < 1) return 0;
+  let min = prices[0];
+  let maxProfit = 0;
+  for (let i = 1; i < prices.length; i++) {
+    min = Math.min(min, prices[i]);
+    maxProfit = Math.max(maxProfit, prices[i] - min);
+  }
+  return maxProfit;
+}
+
 module.exports = bestProfit;

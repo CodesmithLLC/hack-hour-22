@@ -19,9 +19,10 @@ function subsetSum(array, target) {
 
     for (let j = 1; j < array.length - 1; j += 1) {
       if (newArray[i] === target) { return true }
-      if (newArray[j])
+      // if (newArray[j])
 
     }
+
     newArray.reduce((acc, curr) => {
       if (curr === target) {
         output = true;
