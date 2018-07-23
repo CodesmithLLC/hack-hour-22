@@ -16,21 +16,16 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-<<<<<<< HEAD
-function fizzbuzz(num) {
-    const arr = [];
-    for (let i = 1; i <= num; i++) {
-    if (i % 3 == 0) console.log('fizz');
-    else if (i % 5 == 0) console.log('buzz');
-    else if (i % 15 == 0) console.log('fizzbuzz');
-    else console.log(i);
-    arr.push(i);
-    }
-    return arr;
-=======
-function fizzbuzz(num) {  
+function filterFizzBuzz(num) {  
+	const threeDivisor = num % 3 === 0 ? 'fizz' : '';
+	const fiveDivisor = num % 5 === 0 ? 'buzz' : '';
+	const output = threeDivisor + fiveDivisor;
 
->>>>>>> 4d093b1b3c0f86c5cfd7f5e098f474291392bf00
+	return output || num;
 }
+
+const fizzvuzz = num => Array(num)
+	.fill(null)
+	.map((acc, idx) => filterFizzBuzz(idx + 1));
 
 module.exports = fizzbuzz;

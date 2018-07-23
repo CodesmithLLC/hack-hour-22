@@ -11,13 +11,14 @@ function Stack() {
 Stack.prototype.push = (val) => {
     this.storage[this.count] = val;
     this.count++;
+    return this.count;
 }
 
-Stack.prototype.pop = (val) => {
+Stack.prototype.pop = () => {
     if (this.count === 0) return undefined;
-    this.count--;
-    let result = this.storage[this.count];
-    delete this.storage[this.count];
+    let result = this.storage[this.count - 1];
+    delete this.storage[this.count - 1];
+    this.count -= 1;
     return result;
 }
 
@@ -35,43 +36,30 @@ Stack.prototype.isEmpty = () => {
 * Queue Class
 */
 
-function Node(data) {
-    this.data = data;
-    this.next = null;
-}
+
 
 function Queue() {
-    this.head = null;
-    this.tail = null;
+	this.inStack = new Stack();
+	this.outStack = new Stack();
 }
 
-Queue.prototype.enqueue = (data) => {
-    let newNode = new Node(data);
-
-    if (this.head === null) {
-        this.head = newNode;
-        this.tail = newNode;
-    } else {
-        this.tail.next = newNode;
-        this.tail = newNode;
-    }
+Queue.prototype.enqueue = (val) => {
+	this.inStack.push(val);
+	return this.inStack.length;
 }
 
 Queue.prototype.dequeue = () => {
-    let newNode;
-    if (this.head !== null) {
-        newNode = this.head.data;
-        this.head = this.head.next;
-    }
-    return newNode;
+	if (this.inStack.length === 0) return undefined;
+
+	while (this.inStack.length > 0) {
+		this.outStack.push(this.inStack.pop());
+	}
+	const temp = this.outStack.pop();
+	while (this.outStack.length > 0) {
+		this.inStack.push(this.outStack.pop());
+	}
+	return temp;
 }
 
-Queue.prototype.print = () => {
-    let current = this.head;
-    while (current) {
-        console.log(current.data);
-        current = current.next;
-    }
-}
 
-module.exports = {Stack: Stack, Queue: Queue};
+module.exports = { Stack, Queue };

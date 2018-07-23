@@ -14,27 +14,23 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-    let result = null;
-    const stack = [];
-    let current = head;
+	let current = head;
+	let previous = null;
+	let nextNode = null;
 
-    while (current) {
-        stack.push(current);
-        current = current.next;
-    }
-    //set head to end of list 
-    result = stack.pop || [];
-    current = result;
+	//until we reach the end of the list
+	while (current) {
+		// make a pointer copy of next element before we overwrite current.next
+		nextNode = current.next;
 
-    while (current) {
-        current.next = stack.pop();
-        current = current.next;
-    }
-    return result;
+		//reverse the 'next' pointer
+		current.next = previous;
+
+		//go forward on the list
+		previous = current;
+		current = nextNode;
+	}
+	return previous;
 }
 
-
-//complexity: running time: O(n) 
-//space: o(1)
-
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node, reverseLinkedList };

@@ -22,21 +22,6 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  
-
-  // let lead = head;
-  // let follow = head;
-
-  // for (let i = 0; i < k && lead; i++) {
-  //   lead = lead.next;
-  // }
-  // while (lead && follow) {
-  //   lead = lead.next;
-  //   follow = follow.next;
-  // }
-  // return follow.value;
-
-
   let p1 = head; 
   let p2 = head;
   for (let i = 0; i < k; i++) {
@@ -51,4 +36,4 @@ function kthToLastNode(k, head) {
   return p2.value;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node, kthToLastNode };

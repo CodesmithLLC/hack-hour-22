@@ -23,29 +23,32 @@ function romanNumeral(n) {
 // if input is not a number, return NaN
 
 
-//  if (typeof n !== 'number') return NaN;
-//     let digits = String(+n).spit('');
-//     const key = ["", "C", "CC" "CCC" "CD" "D" "DC" "DCC" "DCCC" "CM", "", "X",
-//         "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "", "I", "II",
-//         "III",  "IV", "V", " VI", "VII", "VIII", "IX"];
-//     let roman = '';
-//     i = 3;
-//     while (i--) {
-//         roman = (key[+digits.pop() + (i * 10)] || "") + roman;
-//         return Array(+digits.join('') + 1).join("M") + roman 
-//     }
+	const obj = {
+			M:1000,
+			CM:900,
+			D:500,
+			CD:400,
+			C:100,
+			XC:90,
+			L:50,
+			XL:40,
+			X:10,
+			IX:9,
+			V:5,
+			IV:4,
+			I:1
+	};
 
-    var obj = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
-    let roman = '';
-    let i;
+	const romanArr = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+	let roman = '';
 
-    for (i in obj) {
-        while (n >= obj[i]) {
-            roman += i;
-            n -= obj[i];
-        }
-    }
-    return roman;
+	for (let i = 0; n; i++) {
+		while (n >= romanArr[i]) {
+			roman += romanObj[romanArr[i]];
+			n -= romanArr[i]
+		}
+	}
+	return roman;
 }
 
 
