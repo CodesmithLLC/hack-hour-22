@@ -19,9 +19,12 @@ function countTwos(num) {
   const quickCalc = (order - 1) * (10 ** (order - 2));
   const newBase = 10 ** (order - 1);
 
-  return quickCalc + Array(num - newBase)
-    .fill(null)
-    .reduce((acc, _, idx) => acc + count(idx + 1 + newBase), 0);
+  const checks = [];
+  for (let i = 0; i < num - newBase; i += 1) {
+    checks.push(i + 1 + newBase);
+  }
+
+  return quickCalc + checks.reduce((acc, curr) => acc + count(curr), 0);
 }
 
 // 0-9: 1 --> 1
