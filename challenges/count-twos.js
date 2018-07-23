@@ -10,7 +10,12 @@
 
 
 function countTwos(num) {
-
+  let count = 0; 
+  for (let i = 0; i <= (num/10); i++) { 
+    parseInt(String(i).concat('2'));
+    count++; 
+  }
+  return count;
 }
 
 module.exports = countTwos;
