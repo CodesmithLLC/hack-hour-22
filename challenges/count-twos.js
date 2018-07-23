@@ -10,7 +10,27 @@
 
 
 function countTwos(num) {
-
+  let n = num, total = 0;
+  
+  while (n > 0) {
+    const digits = n.toString();
+    
+    for (const digit of digits) {
+      if (digit === '2') total++;
+    }
+    
+    n--;
+  }
+  
+  return total;
 }
+
+
+// console.log(countTwos(1));  //-> 0
+// console.log(countTwos(3));  //-> 1
+// console.log(countTwos(13));  //-> 2
+// console.log(countTwos(1000));  //-> 300
+// console.log(countTwos(11420));  //-> 4483
+
 
 module.exports = countTwos;
