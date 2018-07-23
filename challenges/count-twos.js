@@ -10,7 +10,18 @@
 
 
 function countTwos(num) {
-
+  let twoCount = 0;
+  let i = 1;
+  while (i <= num) {
+    const numArray = i.toString().split('');
+    numArray.forEach(x => {
+      if (x === '2') twoCount += 1;
+    });
+    i += 1
+  }
+  return twoCount;
 }
 
 module.exports = countTwos;
+
+console.log(countTwos(1000));
