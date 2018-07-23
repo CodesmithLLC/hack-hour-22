@@ -10,6 +10,7 @@
 
 
 function countTwos(num) {
+  if (num < 2) return 0;
   let twoCount = 0;
   let i = 1;
   while (i <= num) {
