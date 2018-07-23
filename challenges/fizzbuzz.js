@@ -17,7 +17,7 @@
 //                     16 ]
 
 function fizzbuzz(num) {
- if(typeof num !== 'number') return "Incorret input";
+  if (typeof num !== 'number') return 'Incorrect input';
   const arr = [];
   for (let i = 1; i <= num; i++) {
     let str = '';
