@@ -10,7 +10,16 @@
  */
 
 function permPalin(str) {
-	
+    const cache = {};
+    for (let i = 0; i < str.length; i++) {
+        if (cache[str[i]]) {
+            delete cache[str[i]];
+        } else if (!cache[str[i]]) {
+            cache[str[i]] = true;
+        }
+    }
+    return Object.keys(cache).length > 1 ? false : true;
 }
+
 
 module.exports = permPalin;

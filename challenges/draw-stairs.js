@@ -14,8 +14,19 @@
 */
 
 function drawStairs(n) {
-
+    // n = number of lines 
+    // each line starts at one and increments
+    // add '/n' and '/t' at the end of the new line
+    let asterisks = '*'
+    let space = ' ';
+    let ask = '*';
+    for (let i = n; i >= 0; i--) {
+        console.log(space + asterisks + '\n');
+        asterisks += ask;
+    }
 }
+
+console.log(drawStairs(10));
 
 
 module.exports = drawStairs;

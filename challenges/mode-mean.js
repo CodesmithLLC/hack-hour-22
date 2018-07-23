@@ -11,7 +11,18 @@
 
 
 function modemean(array) {
-
+	let arr = array;
+	let obj = arr.reduce((acc, curr) => {
+		acc[curr] ? acc[curr]++ : acc[curr] = 1;
+		return acc;
+	}, {});
+	let avg = arr.reduce((acc, curr) => {
+		acc = Math.floor( (acc + curr) / array.length);
+		return acc; 
+	});
+	let mode = Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
+		return avg = mode ? true : false;
 }
+
 
 module.exports = modemean;
