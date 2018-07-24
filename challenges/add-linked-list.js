@@ -17,8 +17,24 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-
+function linkedListToInt(l1, l2, base = 1) {
+	if (!l1 && !l2) return 0;
+	if (!l1) return (l2.value * base) + linkedListToInt(l1, l2.next, base * 10);
+	if (!l2) return (l1.value * base) + linkedListToInt(l1.next, l2, base * 10);
+	return ((l1.value + l2.value) * base) + linkedListToInt(l1.next, l2.next, base * 10);
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+function addLinkedList(l1, l2) {
+	let num = linkedListToInt(l1, l2);
+	let digits = num.toString().split('');
+	let newLL = new Node(digits.pop());
+	let currentNode = newLL;
+	while (digits.length !== 0) {
+		currentNode.next = new Node(digits.pop());
+		currentNode = currentNode.next;
+	}
+	return newLL;
+}
+
+module.exports = {Node: Node, addLinkedList: addLinkedList, linkedListToInt:linkedListToInt };
+
