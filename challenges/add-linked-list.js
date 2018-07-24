@@ -12,13 +12,31 @@
  *
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
+function addLinkedList(l1, l2, l3) {
+  l3 = new Node(l1.value+l2.value);
+  let diff;
+  if (l3.value > 9){
+     diff = l3.value - 9;
+    l3.value -= diff;
+    }
+  if (l1.next){
+    if (diff) l1.next.value += diff;
+    
+    l3.next = addLinkedList(l1.next, l2.next, l3.next)
+  }
+  else if (diff){
+    l3.next = new Node(diff);
+    }
+  return l3;
 }
+// const l1 = new Node(2);
+// l1.next = new Node(1);
+// l1.next.next = new Node(5);
 
-function addLinkedList(l1, l2) {
-
-}
-
+// const l2 = new Node(5);
+// l2.next = new Node(9);
+// l2.next.next = new Node(2);
+// console.log(l1);
+// console.log('this is l2 ',l2);
+// console.log(addLinkedList(l1, l2));
 module.exports = {Node: Node, addLinkedList: addLinkedList};
