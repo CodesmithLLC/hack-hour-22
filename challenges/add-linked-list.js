@@ -16,9 +16,44 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
+const firstLL = new Node(2);
+firstLL.next = new Node(1);
+firstLL.next.next = new Node(5);
+
+const secondLL = new Node(5);
+secondLL.next = new Node(9);
+secondLL.next.next = new Node(2);
 
 function addLinkedList(l1, l2) {
-
+  if (!l1.value) return l2;
+  if (!l2.value) return l1;
+  function getRvsdNumberValue(ll, strNum = '') {
+    if (ll.value.constructor.name !== 'Number') throw Error;
+    if (ll.next) return getRvsdNumberValue(ll.next, strNum + ll.value);
+    return +(strNum + ll.value)
+      .split('')
+      .reverse()
+      .join('');
+  }
+  let newLLStrVals;
+  try {
+    newLLStrVals = (getRvsdNumberValue(l1) + getRvsdNumberValue(l2))
+      .toString()
+      .split('')
+      .reverse();
+  } catch (error) {
+    return undefined;
+  }
+  const result = new Node(newLLStrVals.shift());
+  function getHead(ll) {
+    if (ll.next) return getHead(ll.next);
+    return ll;
+  }
+  while (newLLStrVals.length) {
+    getHead(result).next = new Node(newLLStrVals.shift());
+  }
+  return result;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+console.log(addLinkedList(firstLL, secondLL));
+module.exports = { Node, addLinkedList };
