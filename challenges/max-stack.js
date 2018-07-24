@@ -8,6 +8,24 @@
 
 function Stack() {
   // body...
+  this.items = [1,5,6,8];
+  
+   this.items.push = (element) => {
+    this.items[this.items.length] = element;
+    return this.items;
+  }
+  this.items.pop = (element) => {
+    element = this.items[this.items.length-1];
+    this.items = this.items.slice(0, this.items.length-1);
+    return element;
+  }
+  this.items.getMax = () => {
+    return this.items.reduce((acc, curr) => {
+      return acc > curr ? acc : curr;
+    });
+  }
+  console.log(this.items.push());
+  return this.items;
 }
 
 module.exports = Stack;
