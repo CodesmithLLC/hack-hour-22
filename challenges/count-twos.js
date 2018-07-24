@@ -10,7 +10,23 @@
 
 
 function countTwos(num) {
+  let ctr = 0;
+  for (let x = 1; x <= num; x++){
 
+    var temp = x.toString();
+    console.log(temp);
+
+    var count = (temp.match(/2/g) || []).length;
+    ctr = ctr + count;
+    console.log(count, ctr);
+
+  }
+  return ctr;
+ 
 }
-
+// console.log(countTwos(1));
+console.log(countTwos(3));
+console.log(countTwos(13));
+console.log(countTwos(1000));
+console.log(countTwos(11420));
 module.exports = countTwos;
