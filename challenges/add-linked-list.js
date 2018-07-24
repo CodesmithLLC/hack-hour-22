@@ -17,8 +17,45 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-
+function generateNode() {
+  return new Node(Math.floor(Math.random() * 10));
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+function generate() {
+  const a = generateNode();
+  a.next = generateNode();
+  a.next.next = generateNode();
+  const b = generateNode();
+  b.next = generateNode();
+  b.next.next = generateNode();
+  b.next.next.next = generateNode();
+  return [a, b];
+}
+
+function addLinkedList(l1, l2) {
+  const newHead = new Node(0);
+  let currentNode = newHead;
+  let left = l1;
+  let right = l2;
+
+  while (left || right) {
+    currentNode.value += left ? left.value : 0;
+    currentNode.value += right ? right.value : 0;
+
+    if (currentNode.value >= 10) {
+      currentNode.value -= 10;
+      currentNode.next = new Node(1);
+    } else if (!left && !right) {
+      currentNode.next = null;
+    }
+
+    if (left) left = left.next;
+    if (right) right = right.next;
+    if ((left || right) && !currentNode.next) currentNode.next = new Node(0);
+    currentNode = currentNode.next;
+  }
+
+  return newHead;
+}
+
+module.exports = { generate, Node, addLinkedList };
