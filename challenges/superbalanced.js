@@ -16,13 +16,13 @@ function BinaryTree(value) {
 function superbalanced(tree) {
   if (!tree.value) return true;
   
-  minDepth = (tree) => {
-    if (tree.value === undefined) return 0
+  const minDepth = (tree) => {
+    if (tree === null) return 0
     
     return 1 + Math.min(minDepth(tree.left), minDepth(tree.right));
   }
-  maxDepth = () => {
-    if (tree.value === undefined) return 0
+  const maxDepth = (tree) => {
+    if (tree === null) return 0
 
     return 1 + Math.max(maxDepth(tree.left), maxDepth(tree.right));   
   }
