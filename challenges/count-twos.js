@@ -14,8 +14,7 @@ function countTwos(number) {
   for (let num = 1; num <= number; num += 1) {
     const numArray = num.toString().split('');
     for (let index = 0; index < numArray.length; index += 1) {
-      const element = numArray[index];
-      if (element === '2') {
+      if (numArray[index] === '2') {
         twoCounter += 1;
       }
     }
