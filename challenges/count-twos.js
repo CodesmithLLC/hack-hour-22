@@ -9,17 +9,17 @@
 // countTwos(11420);  -> 4483
 
 function countTwos(num) {
-   let i = 0;
-   let count = 0;
+  let i = 0;
+  let count = 0;
 
-   while (i <= num) {
-      if (i.toString().match(/2/g)) {
-         const twos = i.toString().match(/2/g).length;
-         count += twos;
-      }
-      i++;
-   }
-   return count;
+  while (i <= num) {
+    if (i.toString().match(/2/g)) {
+      const twos = i.toString().match(/2/g).length;
+      count += twos;
+    }
+    i++;
+  }
+  return count;
 }
 
 module.exports = countTwos;
