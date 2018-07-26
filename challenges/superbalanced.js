@@ -14,7 +14,18 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  return treeCode(tree) !== -1;
+}
 
+// return -1 for unbalanced, tree height for balanced
+function treeCode(tree) {
+  const leftVal = this.left ? treeCode(leftVal) : 0;
+  const rightVal = this.right ? treeCode(rightVal) : 0;
+  
+  if (leftVal >= 0 && rightVal >= 0 && Math.abs(leftVal - rightVal) <= 1)
+    return Math.max(leftVal, rightVal) + 1;
+  else
+    return -1;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
