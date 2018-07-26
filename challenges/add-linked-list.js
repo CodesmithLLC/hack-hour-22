@@ -36,17 +36,3 @@ function addLinkedList(l1, l2) {
 }
 
 module.exports = { Node, addLinkedList };
-
-const node1 = new Node(5);
-node1.next = new Node(3);
-node1.next.next = new Node(4);
-node1.next.next.next = new Node(5);
-node1.next.next.next.next = new Node(6);
-
-const node2 = new Node(3);
-node2.next = new Node(4);
-node2.next.next = new Node(5);
-node2.next.next.next = new Node(6);
-node2.next.next.next.next = new Node(6);
-
-console.log(addLinkedList(node1, node2));
