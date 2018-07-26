@@ -18,6 +18,15 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  const linkedNumber = linkedList => {
+    const numberOutput = [];
+    while (linkedList.next !== null) {
+      numberArray.unshift(linkedList.value);
+      linkedList = linkedList.next;
+    }
+    return parseInt(numberArray.join(''));
+  }
+  const sumArray = (linkedNumber(l1) + linkedNumber(l2)).split('').reverse();
 
 }
 
