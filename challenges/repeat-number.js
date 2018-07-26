@@ -10,8 +10,13 @@
  *
  */
 
-function repeatNumbers(array) {
-
+const repeatNumbers = (array) => {
+  let obj = {}
+  for (let i = 0; i < array.length; i++) {
+    if (obj[array[i]]) return array[i];
+    obj[array[i]] = array[i];
+  }
 }
 
+console.log(repeatNumbers([1,2,3,4,5,2]))
 module.exports = repeatNumbers;
