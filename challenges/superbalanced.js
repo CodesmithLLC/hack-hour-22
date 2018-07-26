@@ -13,8 +13,37 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function BinarySearchTree(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+function superbalanced(tree) {
+  function height(node) {
+    if (node === null) return 0;
+    else {
+      return 1 + Math.max(height(node.left), height(node.right));
+    }
+  }
+  return Math.abs(height(tree.left) - height(tree.right)) <= 1;
+}
+
+
+var myBST = new BinarySearchTree(8);
+var n1 = new BinarySearchTree(3);
+var n2 = new BinarySearchTree(10);
+var n3 = new BinarySearchTree(1);
+var n4 = new BinarySearchTree(6);
+var n5 = new BinarySearchTree(4);
+var n6 = new BinarySearchTree(7);
+var n7 = new BinarySearchTree(14);
+
+myBST.left = n1;
+myBST.right = n2;
+n2.right = n6;
+n2.left = n4;
+
+superbalanced(myBST);
+
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
