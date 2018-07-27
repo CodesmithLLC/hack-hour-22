@@ -12,6 +12,11 @@ function BinaryTree(value) {
   this.left = null;
   this.right = null;
 }
+const BST = new BinaryTree(4);
+BST.left = new BinaryTree(2);
+BST.left.left = new BinaryTree(1);
+BST.left.right = new BinaryTree(3);
+
 
 function superbalanced(tree) {}
 
