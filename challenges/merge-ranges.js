@@ -11,7 +11,21 @@
 
 
 function mergeRanges(array) {
-
+  const sorted = array.slice().sort((a, b) => {
+    return a[0] - b[0]
+  })
+  sorted.forEach((range, index) => {
+    for (let i = index; i < sorted.length; i++) {
+      if (range[1] >= sorted[i][0] && i !== index) {
+        if (range[1] <= sorted[i][1]) {
+          range.pop()
+          range.push(sorted[i].pop())
+        }
+        sorted.splice(i, 1)
+      }
+    }
+  })
+  if (sorted.length < array.length) return mergeRanges(sorted)
+  else return sorted
 }
-
 module.exports = mergeRanges;
