@@ -39,7 +39,7 @@ function hasCycle(head) {
       return true;
       }
       else { 
-      obj[head.value] = obj[head.value];
+      obj[head.value] = head.value;
       head = head.next;
         }
     }
