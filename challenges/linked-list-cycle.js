@@ -30,10 +30,23 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
+};
+
+var node1 = new Node('1');
+var node2 = (node1.next = new Node('2'));
+var node3 = (node2.next = new Node('3'));
+var node4 = (node3.next = new Node('4'));
+var node5 = (node4.next = new Node('5'));
+// node5.next = node2;
+console.log(node1);
+
+function hasCycle(node, values = []) {
+  if (node.next && !values.includes(node.value))
+    return hasCycle(node.next, values.concat(node.value));
+  if (values.includes(node.value)) return true;
+  return false;
 }
+console.log(hasCycle(node1));
 
-function hasCycle(head) {
+module.exports = { Node: Node, hasCycle: hasCycle };
 
-}
-
-module.exports = {Node: Node, hasCycle: hasCycle}
