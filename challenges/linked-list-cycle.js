@@ -33,6 +33,16 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+	const cache = [];
+	let current = head;
+	while (current) {
+		if (cache.includes(current)) {
+			return true
+		}
+		cache.push(current);
+		current = current.next
+	}
+	return false
 
 }
 
