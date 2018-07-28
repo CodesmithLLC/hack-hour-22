@@ -39,7 +39,9 @@ function hasCycle(head) {
 
   while(slow.value !== fast.value || slow.value !== null) {
     if (slow.value === fast.value) return true;
-    else return false;
+    slow = slow.next;
+    fast = slow.next;
+  }
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node, hasCycle };
