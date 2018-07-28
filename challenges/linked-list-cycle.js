@@ -33,7 +33,24 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  // iterate over the next value with a fast and slow pointer and check if they match
+  while (head.next) {
+    let slow = head.value;
+    let fast = head.next.next();
+    if (slow.value === fast.value ) return true;
+    head = head.next;
+  }
+  return false;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+console.log('object');
+// Tests
+// const node1 = new Node('1');
+// const node2 = node1.next = new Node('2');
+// const node3 = node2.next = new Node('3');
+// const node4 = node3.next = new Node('4');
+// const node5 = node4.next = new Node('5');
+// console.log(hasCycle(node1)); // => false
+// node5.next = node2;
+// console.log(hasCycle(node1)); // => true
