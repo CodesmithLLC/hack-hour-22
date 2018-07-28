@@ -34,7 +34,7 @@ var Node = function(value) {
 
 function hasCycle(head) {
   const obj = {};
-  while(head.next){
+  while(head!== null && head.next){
     if (head.value in obj){
       return true;
       }
