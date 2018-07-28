@@ -1,3 +1,4 @@
+/* eslint no-multi-assign: 0 */
 /**
  * We are familar with linked lists being linear and terminating:
  *
@@ -27,13 +28,33 @@
  *
  */
 
-var Node = function(value) {
+const Node = function Node(value) {
   this.value = value;
   this.next = null;
-}
+};
+
+// function generate(cyclic) {
+//   const node1 = new Node('1');
+//   const node2 = node1.next = new Node('2');
+//   const node3 = node2.next = new Node('3');
+//   const node4 = node3.next = new Node('4');
+//   const node5 = node4.next = new Node('5');
+//   if (cyclic) node5.next = node2;
+//   return node1;
+// }
 
 function hasCycle(head) {
-
+  let fast = head;
+  let slow = head;
+  while (fast) {
+    for (let i = 0; i < 2; i += 1) {
+      fast = fast.next;
+      if (fast === null) return false;
+      if (fast === slow) return true;
+    }
+    slow = slow.next;
+  }
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node, hasCycle };
