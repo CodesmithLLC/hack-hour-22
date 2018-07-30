@@ -7,7 +7,7 @@
 
 function sumMultiples3Or5Below1000() {
   let result = [];
-  for (let i = 1; i < 20; i++) {
+  for (let i = 1; i < 1000; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       result.push(i)
     } else if (i % 3 === 0) {
