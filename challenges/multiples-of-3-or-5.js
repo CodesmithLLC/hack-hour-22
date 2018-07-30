@@ -31,7 +31,7 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   }
   return sum;
 }
-console.log(sumMultiplesXOrYBelowZ(3, 5, 1));
+// console.log(sumMultiplesXOrYBelowZ(3, 5, 1));
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
