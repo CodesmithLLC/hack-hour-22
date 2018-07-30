@@ -17,22 +17,22 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-  if (!l1 || !l2) return l1 || l2;
-  let carryOver = 0;
-  let temp = l1;
-  let temp2 = l2;
-  while (temp && temp2) {
-    temp.value = temp.value + temp2.value + carryOver;
-    if (temp.value > 9) {
-      carryOver = 1;
-      temp.value -= 10;
-    }
-    temp.head = temp.head || temp.value;
-    temp = temp.next;
-    temp2 = temp2.next;
+function addLinkedList(l1, l2, carryOver = 0) {
+  if (!l1 && !l2 && !carryOver) return null;
+  let sum = carryOver;
+  if (l1) {
+    sum += l1.value;
   }
-  return temp.head;
+  if (l2) {
+    sum += l2.value;
+  }
+
+  const result = new Node(sum % 10);
+  if (l1 || l2) {
+    const rest = addLinkedList(l1.next, l2.next, sum > 10 ? 1 : 0);
+    result.next = rest;
+  }
+  return result;
 }
 
 module.exports = { Node, addLinkedList };
