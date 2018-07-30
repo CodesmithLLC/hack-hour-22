@@ -11,7 +11,7 @@
 
 
 function mergeRanges(array) {
-
+  return;
 }
 
 module.exports = mergeRanges;
