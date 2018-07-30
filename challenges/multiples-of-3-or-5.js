@@ -7,9 +7,10 @@
 
 function sumMultiples3Or5Below1000() {
   const naturalSum = n => (n * (n + 1) / 2);
-  let n3 = Math.floor(1000 / 3);
-  let n5 = Math.floor(1000 / 5);
-  return sum = 3 * naturalSum(n3) + 5 * naturalSum(n5);
+  const n3 = Math.floor(1000 / 3);
+  const n5 = Math.floor(1000 / 5);
+  const n15 = Math.floor(1000 / 15);
+  return sum = 3 * naturalSum(n3) + 5 * naturalSum(n5) - 15 * naturalSum(15);
 }
 
 
@@ -22,7 +23,7 @@ const naturalSum = n => (n * (n + 1) / 2);
 const nx = Math.floor(z / x);
 // mow many multiples of y will be less than z?
 const ny = Math.floor(z / y);
-
+// intersection of the two sume will need to be subtracted
 const nxy = Math.floor(z / (x * y));
 // use scalar multiple properties of summation to return the sum of the sums,
 // but also use inclusion exclusion principle to remove the intersection of the two sums
