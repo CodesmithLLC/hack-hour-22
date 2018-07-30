@@ -6,18 +6,24 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  let sum = 0;
-
-  return sum;
+  const naturalSum = n => (n * (n + 1) / 2);
+  let n3 = Math.floor(1000 / 3);
+  let n5 = Math.floor(1000 / 5);
+  return sum = 3 * naturalSum(n3) + 5 * naturalSum(n5);
 }
 
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
-  let sum = 0;
-
-  return sum;
+// formmula for the sum of the natural numbers from 1...n
+const naturalSum = n => (n * (n + 1) / 2);
+// how many multiples of x will be less than z? 
+const nx = Math.floor(z / x);
+// mow many multiples of y will be less than z?
+const ny = Math.floor(z / y);
+// use scalar multiple properties of summation to return the sum of the sums :) 
+return (x * naturalSum(nx)) + (y * naturalSum(ny));
 }
 
 const objectToExport = {
