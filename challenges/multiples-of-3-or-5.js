@@ -27,7 +27,7 @@ const ny = Math.floor(z / y);
 const nxy = Math.floor(z / (x * y));
 // use scalar multiple properties of summation to return the sum of the sums,
 // but also use inclusion exclusion principle to remove the intersection of the two sums
-return (x * naturalSum(nx)) + (y * naturalSum(ny)) - (nxy * naturalSum(nxy));
+return (x * naturalSum(nx)) + (y * naturalSum(ny)) - ((x * y) * naturalSum(nxy));
 }
 
 const objectToExport = {
