@@ -7,22 +7,30 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
-
+  sum += sumMultiplesXOrYBelowZ(3, 5, 1000);
   return sum;
 }
-
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-
+  sum += summation(x, z);
+  sum += summation(y, z);
+  sum -= summation(x * y, z);
   return sum;
+}
+
+function summation(n, limit) {
+  limit = limit - 1;
+  return n * Math.floor(limit / n) * (Math.floor(limit / n) + 1) / 2;
 }
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
-  sumMultiplesXOrYBelowZ,
+  sumMultiplesXOrYBelowZ
 };
 
 module.exports = objectToExport;
+
+console.log(sumMultiples3Or5Below1000());
