@@ -22,8 +22,11 @@ const naturalSum = n => (n * (n + 1) / 2);
 const nx = Math.floor(z / x);
 // mow many multiples of y will be less than z?
 const ny = Math.floor(z / y);
-// use scalar multiple properties of summation to return the sum of the sums :) 
-return (x * naturalSum(nx)) + (y * naturalSum(ny));
+
+const nxy = Math.floor(z / (x * y));
+// use scalar multiple properties of summation to return the sum of the sums,
+// but also use inclusion exclusion principle to remove the intersection of the two sums
+return (x * naturalSum(nx)) + (y * naturalSum(ny)) - (nxy * naturalSum(nxy));
 }
 
 const objectToExport = {
