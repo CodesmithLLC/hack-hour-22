@@ -33,17 +33,13 @@ var Node = function (value) {
 }
 
 function hasCycle(head) {
-  let nodeCount = 0;
-  let current = head;
-  const values = {};
-
-  while (current) {
-    if (values[])
-      values[nodeCunt] = current.value;
-
-    current = current.next;
+let a = head, b = head;
+  while (a && b) {
+    a = a.next;
+    if (!b.next) return false;
+    b = b.next.next;
+    if (a === b) return true;
   }
-
   return false;
 }
 
