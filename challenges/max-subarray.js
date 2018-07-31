@@ -7,7 +7,7 @@
  *
  */
 
-const maxSubArray = (arr) => {
+function maxSubArray = (arr) {
   let maxn = -Number.MAX_VALUE;
   let sum = 0;
 
