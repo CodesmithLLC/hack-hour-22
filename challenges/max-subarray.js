@@ -8,7 +8,18 @@
  */
 
 function maxSubarray(arr) {
-
+  // Kadane's algorithm
+  // set maxes to -infinity
+  // loop through array
+  // set max to be the largest value between arr[i] and max
+  // set finalMax to the largest between max
+  let max = -Infinity;
+  let finalMax = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    max = Math.max(arr[i], arr[i] + max);
+    finalMax = Math.max(finalMax, max);
+  }
+  return finalMax;
 }
 
 module.exports = maxSubarray;
