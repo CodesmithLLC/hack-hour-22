@@ -7,8 +7,15 @@
  *
  */
 
-function maxSubarray(arr) {
+const add = (a, b) => a + b;
 
+function maxSubarray(arr) {
+  if (arr.length === 1) return arr[0];
+  return Math.max(
+    arr.reduce(add),
+    maxSubarray(arr.slice(1)),
+    maxSubarray(arr.slice(0, -1)),
+  );
 }
 
 module.exports = maxSubarray;
