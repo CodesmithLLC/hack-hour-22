@@ -38,9 +38,9 @@ function maxSubarray(arr) {
     
         //   console.log(outside_e, curr, outside_i, "~~", curr_i);
           if (outside_i <= curr_i ){
-              console.log(curr);
+            //   console.log(curr);
               newSum+=curr;
-              console.log(newSum, "NEWsum")
+            //   console.log(newSum, "NEWsum")
               sumOfSubSetArrays.push(newSum);
           }
 
@@ -52,10 +52,10 @@ function maxSubarray(arr) {
 
 
   });
-  console.log(sumOfSubSetArrays);
+//   console.log(sumOfSubSetArrays);
   return Math.max(...sumOfSubSetArrays)
 
 }
 
-console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
+// console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
 module.exports = maxSubarray;
