@@ -11,13 +11,12 @@
  */
 
 function repeatNumbers(array) {
-  const numbers = {};
-
+ const obj = {};
   for (let i = 0; i < array.length; i++) {
-    if (numbers[array[i]]) {
-      return array[i];
+    if (!obj.hasOwnProperty(array[i])) {
+      obj[array[i].toString()] = 1;
     } else {
-      numbers[array[i]] = i + 1;
+      return array[i];
     }
   }
 }

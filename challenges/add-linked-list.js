@@ -18,51 +18,27 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  const l1Values = [];
-  const l2Values = [];
-  let currL1 = l1;
-  let currL2 = l2;
-
-  while (currL1) {
-    l1Values.push(currL1.value);
-    currL1 = currL1.next;
+if (!l1 && !l2 && !carryover) {
+    return null;
   }
 
-  while (currL2) {
-    l2Values.push(currL2.value);
-    currL2 = currL2.next;
+  var sum = carryover || 0;
+  if (l1) {
+    sum += l1.value;
   }
-
-  const max = l1Values.length > l2Values.length ? l1Values.length : l2Values.length;
-
-  let remainder;
-  const newNumber = [];
-
-  for (let i = 0; i < max; i++) {
-    if (!l1Values[i]) newNumber.push(l2Values[i]);
-    else if (!l2Values[i]) newNumber.push(l1Values[i]);
-    else {
-      if (remainder) {
-        let num = l1Values[i] + l2Values[i] + remainder;
-        if (num >= 10) {
-          console.log(num);
-          remainder = 10 - num;
-          newNumber.push(remainder - num);
-        } else {
-          newNumber.push(num);
-        }
-      } else {
-        let num = l1Values[i] + l2Values[i];
-        if (num >= 10) {
-          remainder = 11 - num;
-          newNumber.push(num - remainder);
-        } else {
-          newNumber.push(num);
-        }
-      }
-    }
+  if (l2) {
+    sum += l2.value;
   }
-  return newNumber;
+  var result = new Node(sum % 10);
+  if (l1 || l2) {
+    var rest = addLinkedList(
+      l1 ? l1.next : null,
+      l2 ? l2.next : null,
+      sum >= 10 ? 1 : 0
+    );
+    result.next = rest;
+  }
+  return result;
 }
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
