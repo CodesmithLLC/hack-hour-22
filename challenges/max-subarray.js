@@ -7,16 +7,16 @@
  *
  */
 
-function maxSubArray = (arr) {
-  let maxn = -Number.MAX_VALUE;
+function maxSubarray = (arr) {
+  let maxNum = -Number.MAX_VALUE;
   let sum = 0;
 
   arr.forEach((item, index, array) => {
     sum += item;
-    if (sum > maxn) maxn = sum;
+    if (sum > maxNum) maxNum = sum;
     if (sum < 0) sum = 0;
   });
-  return maxn;
+  return maxNum;
 };
 
 module.exports = maxSubarray;
