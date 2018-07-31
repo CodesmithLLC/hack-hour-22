@@ -7,7 +7,7 @@
  *
  */
 
-function maxSubarray = (arr) {
+function maxSubarray(arr) {
   let maxNum = -Number.MAX_VALUE;
   let sum = 0;
 
