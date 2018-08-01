@@ -20,7 +20,7 @@ function anagrams(string) {
     const word = string.substr(0, i) + string.substr(i + 1, string.length - 1);
     const words = anagrams(word);
     for (let j = 0; j < words.length; j += 1) {
-      answers.push(letter + words);
+      answers.push(letter + words[j]);
     }
   }
   return answers;
