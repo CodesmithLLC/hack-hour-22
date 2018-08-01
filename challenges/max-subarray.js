@@ -35,12 +35,14 @@ function maxSubarray(arr) {
     }
     
     // no improvements from crashing
-    return arr.slice(i, j + 1).reduce((acc, n) => acc + n);
+    return arr.slice(i, j + 1).reduce((acc, n) => acc + n, 0);
   }
   
 }
 
-console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
-console.log(maxSubarray([15,20,-5,10]));
+// console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
+// console.log(maxSubarray([15,20,-5,10]));
+// console.log(maxSubarray([-5,-10,-22]));
+
 
 module.exports = maxSubarray;
