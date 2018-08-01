@@ -9,7 +9,12 @@
  */
 
 function subsetSum(array, target) {
-
+	if (array.includes(target)) return true;
+	return array.some((num, index) => subsetSum(
+		[...array.slice(0, index), ...array.slice(index + 1)], target - num,
+	));
 }
+
+
 
 module.exports = subsetSum;

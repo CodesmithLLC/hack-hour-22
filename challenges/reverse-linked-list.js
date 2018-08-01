@@ -14,7 +14,23 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+	let current = head;
+	let previous = null;
+	let nextNode = null;
 
+	//until we reach the end of the list
+	while (current) {
+		// make a pointer copy of next element before we overwrite current.next
+		nextNode = current.next;
+
+		//reverse the 'next' pointer
+		current.next = previous;
+
+		//go forward on the list
+		previous = current;
+		current = nextNode;
+	}
+	return previous;
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node, reverseLinkedList };

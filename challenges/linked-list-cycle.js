@@ -27,13 +27,22 @@
  *
  */
 
-var Node = function(value) {
+const Node = (value) => {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
+  let first = head;
+  let second = head;
 
+  while (second.next !== null) {
+    first = first.next;
+    second = second.next.next;
+
+    if (first === second) return true;
+  }
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node, hasCycle };
