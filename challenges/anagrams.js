@@ -13,7 +13,23 @@
   */
 
 function anagrams(string) {
+  if (string.length === 1) return [string];
 
+  const combos = [];
+  let checked = '';
+
+  string.split('').forEach((char, idx) => {
+    if (checked.indexOf(char) === -1) {
+      const subCombos = anagrams(
+        `${string.slice(0, idx)}${string.slice(idx + 1)}`,
+        false
+      );
+      combos.push(...subCombos.map(str => `${char}${str}`));
+      checked += char;
+    }
+  });
+
+  return combos;
 }
 
 module.exports = anagrams;
