@@ -10,7 +10,6 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
 function deleteDups(head) {
 	let values = {};
 	let current = head
@@ -18,11 +17,12 @@ function deleteDups(head) {
 	while( current ) {
 		if (values[current.value]) {
 			previous.next = current.next;
+			current = current.next;
 		} else {
 			values[current.value] = true;
+			previous = current;
+			current = current.next;
 		}
-		previous = current;
-		current = current.next;
 	}
 	return head;
 }
