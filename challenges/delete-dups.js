@@ -11,9 +11,20 @@
  */
 
 
-
 function deleteDups(head) {
-
+	let values = {};
+	let current = head
+	let previous;
+	while( current ) {
+		if (values[current.value]) {
+			previous.next = current.next;
+		} else {
+			values[current.value] = true;
+		}
+		previous = current;
+		current = current.next;
+	}
+	return head;
 }
 
 module.exports = deleteDups;
