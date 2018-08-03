@@ -10,31 +10,26 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-function Node(val) {
-  this.val = val;
-  this.next = null;
-}
-
 function deleteDups(head) {
-  let newHead;
-  let newTail;
-  let curr = head;
-  const arr = [];
+  let outer = head;
+  let inner;
 
-  while (curr) {
-    // place unique values into arr
-    if (arr.indexOf(curr.val) === -1) arr.push(curr.val);
-    curr = curr.next;
+  while (outer && outer.next) {
+    inner = outer.next;
+    const { value } = outer;
+    while (inner && inner.next) {
+      if (value === inner.next.value) {
+        if (inner.next.next) {
+          inner.next = inner.next.next;
+        } else {
+          inner.next = null;
+        }
+      }
+      inner = inner.next;
+    }
+    outer = outer.next;
   }
-  newHead = new Node(arr.shift());
-  newTail = newHead;
-
-  while (arr.length) {
-    const newCurr = arr.shift();
-    newTail.next = new Node(newCurr);
-    newTail = newTail.next;
-  }
-  return newHead;
+  return head;
 }
 
 module.exports = deleteDups;
