@@ -22,15 +22,24 @@
  */
 
 function EventEmitter() {
-
+  this.listeners = {};
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function on(funcName, func) {
+  if (!this.listeners[funcName]) {
+    this.listeners[funcName] = [func];
+  } else {
+    this.listeners[funcName].push(func);
+  }
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function trigger(funcName, ...args) {
+  const listeners = this.listeners[funcName];
+  if (listeners) {
+    listeners.forEach((func) => {
+      func(...args);
+    });
+  }
 };
 
 module.exports = EventEmitter;
