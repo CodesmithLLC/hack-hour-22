@@ -41,5 +41,11 @@ function reverseLinkedList(head) {
   head = placeHolder;
   return head;
 }
+  const a = new Node(1);
+  a.next = new Node(2);
+  a.next.next = new Node(3);
+  a.next.next.next = new Node(4);
+
+console.log(reverseLinkedList(a));
 
 module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };

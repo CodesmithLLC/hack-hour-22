@@ -24,13 +24,14 @@ function matchWord(str) {
     if (e !== '') finalArr.push(e)
   });
   for (let i = 0; i < (finalArr.length / 2); i++) {
+  
     if (finalArr[i].toLowerCase() === finalArr[finalArr.length - (i + 1)].split('').reverse().join('').toLowerCase()) {
       return true;
     }
     return false;
   }
 }
-console.log(matchWord(''));
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 
 
 
