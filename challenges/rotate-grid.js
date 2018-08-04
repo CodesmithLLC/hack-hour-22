@@ -17,27 +17,47 @@
  */
 
 function rotateGrid(grid, n) {
-let counter = 0;
-  for(let i = 0; i < 2 ** n; i += 1) {
-    for (let j = 0; j < n; j += 1) {
-      counter ++;
-      if (counter == 3) {
-        console.log(grid[i][j])
-        counter = 0;
-      } else {
-        console.log(grid[j][i])
+  for (let j = 0; j < n - 1; j += 1) {
+    let startRow = 0;
+    let startColumn = 0;
+    let endRow = n - 1;
+    let endColumn = n - 1;
+    let temp = grid[1][0];
+    while (startColumn <= endColumn && startRow <= endRow) {
+      // Shift first row
+      for (let i = startColumn; i <= endColumn; i += 1) {
+        const innerTemp = grid[startRow][i];
+        grid[startRow][i] = temp;
+        temp = innerTemp;
       }
+      startRow += 1;
+      // Shift last column
+      for (let i = startRow; i <= endRow; i += 1) {
+        const innerTemp = grid[i][endColumn];
+        grid[i][endColumn] = temp;
+        temp = innerTemp;
+      }
+      endColumn -= 1;
+      // Shift bottom row
+      for (let i = endColumn; i >= startColumn; i -= 1) {
+        const innerTemp = grid[endRow][i];
+        grid[endRow][i] = temp;
+        temp = innerTemp;
+      }
+      endRow -= 1;
+      // Shift first column
+      for (let i = endRow; i >= startRow; i -= 1) {
+        const innerTemp = grid[i][startColumn];
+        grid[i][startColumn] = temp;
+        temp = innerTemp;
+      }
+      startColumn += 1;
     }
-    console.log(grid);
   }
-
-}
+  return grid;
+};
 
 module.exports = rotateGrid;
-sampleGrid =  [ [1, 2, 3],
-                [4, 5, 6],
-                [7, 8, 9]
-              ]
-                  
-rotateGrid(sampleGrid, 3);
+
+console.log(rotateGrid([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]],4));
 
