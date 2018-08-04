@@ -13,6 +13,8 @@
   */
 
 function anagrams(string) {
+  if (!string || string.trim() === '') return [''];
+  if (string.length === 1) return [string];
   const strArr = string.split('');
   const anagramArr = [];
   let comboArray;
@@ -23,16 +25,22 @@ function anagrams(string) {
         comboArray.push(strArr[j]);
       }
     }
-    anagramArr.push(comboArray.join(''));
+    if (!anagramArr.includes(comboArray.join(''))) {
+      anagramArr.push(comboArray.join(''));
+    }
     comboArray = [strArr[i]];
     for (let k = (strArr.length - 1); k >= 0; k -= 1) {
       if (i !== k) {
         comboArray.push(strArr[k]);
       }
     }
-    anagramArr.push(comboArray.join(''));
+    if (!anagramArr.includes(comboArray.join(''))) {
+      anagramArr.push(comboArray.join(''));
+    }
   }
   return anagramArr;
 }
 
 module.exports = anagrams;
+
+console.log(anagrams('dodo'))
