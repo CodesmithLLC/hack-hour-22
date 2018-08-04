@@ -29,7 +29,7 @@ function deleteDups(head) {
     }
     outer = outer.next;
   }
-  return new Set(head);
+  return head;
 }
 
 module.exports = deleteDups;
