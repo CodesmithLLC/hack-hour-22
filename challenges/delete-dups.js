@@ -25,6 +25,7 @@ function deleteDups(head) {
       last.next = current.next;
       current = current.next;
     } else {
+      values.push(current.value);
       last = current;
       current = current.next;
     }
