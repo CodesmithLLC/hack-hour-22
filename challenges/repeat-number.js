@@ -10,8 +10,9 @@
  *
  */
 
+
 function repeatNumbers(array) {
- const obj = {};
+  const obj = {};
   for (let i = 0; i < array.length; i++) {
     if (!obj.hasOwnProperty(array[i])) {
       obj[array[i].toString()] = 1;
