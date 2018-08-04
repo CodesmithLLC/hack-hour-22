@@ -11,7 +11,23 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+  // using bisection search 
+  let lowerIndex = 0;
+  let upperIndex = arr.length - 1;
+  let medianIndex = Math.floor(arr.length / 2);
 
+  while (medianIndex !== lowerIndex && medianIndex !== upperIndex) {
+    if (target === arr[medianIndex] || target === arr[lowerIndex] || target === arr[upperIndex]) {
+      return true;
+    } else if (target < arr[medianIndex]) {
+      upperIndex = medianIndex
+      medianIndex = Math.floor((upperIndex + lowerIndex) / 2); 
+    } else if (target > arr[medianIndex]) {
+      lowerIndex = medianIndex
+      medianIndex = Math.floor((upperIndex + lowerIndex) / 2); 
+    }
+  }
+  return false;
 }
 
 

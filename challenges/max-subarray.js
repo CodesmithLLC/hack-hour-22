@@ -8,7 +8,7 @@
  */
 
 function maxSubarray(arr) {
-
+  
 }
 
 module.exports = maxSubarray;
