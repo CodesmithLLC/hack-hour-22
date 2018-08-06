@@ -22,15 +22,16 @@
  */
 
 function EventEmitter() {
-  this.store = {};
+  this.cache = {};
 }
 
 EventEmitter.prototype.on = (funcName, func) => {
-  return this.store[funcName] = func;
+  if (!this.cache[funcName]) this.cache[funcName] = [];
+  this.cache[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = (funcName, ...args) => {
-  return this.store[funcName] ? this.store[funcName](...args) : undefined;
+  this.cache[funcName].forEach(func => func(...args));
 };
 
 module.exports = EventEmitter;
