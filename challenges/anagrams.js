@@ -23,7 +23,7 @@ function anagrams(string) {
       answers.push(letter + words[j]);
     }
   }
-  return answers;
+  return [...new Set(answers)];
 }
 
 module.exports = anagrams;

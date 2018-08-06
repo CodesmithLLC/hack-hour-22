@@ -11,25 +11,19 @@
  */
 
 function deleteDups(head) {
-  let outer = head;
-  let inner;
-
-  while (outer && outer.next) {
-    inner = outer.next;
-    const { value } = outer;
-    while (inner && inner.next) {
-      if (value === inner.next.value) {
-        if (inner.next.next) {
-          inner.next = inner.next.next;
-        } else {
-          inner.next = null;
-        }
-      }
-      inner = inner.next;
-    }
-    outer = outer.next;
+  const values = []; 
+  let prevNode;
+  let currNode = head;
+  while (currNode) {
+    if (values.includes(currNode.value)) {
+      // drop current node from the list
+      prevNode.next = currNode.next;
+      // otherwise, add to cache
+    } else values.push(currNode.value);
+    // advance both trackers
+    prevNode = currNode; 
+    currNode = currNode.next;
   }
-  return head;
 }
 
 module.exports = deleteDups;
