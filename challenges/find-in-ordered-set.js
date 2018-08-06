@@ -24,7 +24,7 @@ function findInOrderedSet(arr, target) {
       i = m + 1;
   }
   
-  return arr[i] === target;
+  return false;
 }
 
 
