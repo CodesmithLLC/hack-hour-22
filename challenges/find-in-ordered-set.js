@@ -9,7 +9,6 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
 function findInOrderedSet(arr, target) {
   if (arr.length < 1 || ((arr.length === 1) && (arr[0] !== target))) return false;
   const midpt = Math.ceil((arr.length - 1) / 2);
@@ -19,6 +18,5 @@ function findInOrderedSet(arr, target) {
   }
   return findInOrderedSet(arr.slice(midpt), target);
 }
-
 
 module.exports = findInOrderedSet;
