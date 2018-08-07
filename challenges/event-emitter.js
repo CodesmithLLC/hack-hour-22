@@ -31,7 +31,7 @@ EventEmitter.prototype.on = (funcName, func) => {
 };
 
 EventEmitter.prototype.trigger = (funcName, ...args) => {
-  this.cache[funcName].forEach(func => func(...args));
+  this.cache[funcName].forEach(ele => ele(...args));
 };
 
 module.exports = EventEmitter;
