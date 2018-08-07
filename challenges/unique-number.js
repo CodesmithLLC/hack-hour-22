@@ -10,7 +10,8 @@
  *
  */
 function uniqueNumber(array) {
-
+  const sortedArr = array.sort((a, b) => a - b);
+  return sortedArr.find((val, i) => (val !== array[i + 1]) && (val !== array[i - 1]));
 }
 
 module.exports = uniqueNumber;
