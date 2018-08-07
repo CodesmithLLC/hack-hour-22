@@ -10,7 +10,7 @@
  *
  */
 function uniqueNumber(array) {
-
+  return array.reduce((a, b) => a ^ b); // eslint-disable-line no-bitwise
 }
 
 module.exports = uniqueNumber;
