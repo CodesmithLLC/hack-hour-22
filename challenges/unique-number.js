@@ -10,7 +10,14 @@
  *
  */
 function uniqueNumber(array) {
-
+  let result = 0;
+  
+  for (const num of array)
+    result = result ^ num;
+  
+  return result;
 }
+
+// console.log(uniqueNumber([11,2222,11,333,333]));
 
 module.exports = uniqueNumber;

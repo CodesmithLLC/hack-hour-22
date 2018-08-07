@@ -27,8 +27,8 @@ function swap(array, i, j) {
   [array[i], array[j]] = [array[j], array[i]];
 }
 
-console.log(insertionSort([-40, 20, 4, 2, -80, 1, 5, 3, 0]));
-console.log(insertionSort([-40, 20, 4, 2, -80, 6, 1, 5, 3, 0]));
+// console.log(insertionSort([-40, 20, 4, 2, -80, 1, 5, 3, 0]));
+// console.log(insertionSort([-40, 20, 4, 2, -80, 6, 1, 5, 3, 0]));
 
 
 module.exports = insertionSort;
