@@ -10,7 +10,7 @@
  *
  */
 function uniqueNumber(array) {
-  for (let i = 0; i > array.length; i += 1) {
+  for (let i = 0; i < array.length; i += 1) {
     let last = array.pop();
     if (array.indexOf(last) > -1) {
       array.unshift(last);
