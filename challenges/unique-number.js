@@ -10,14 +10,11 @@
  *
  */
 function uniqueNumber(array) {
+  let result = 0; 
   for (let i = 0; i < array.length; i += 1) {
-    let last = array.pop();
-    if (array.indexOf(last) > -1) {
-      array.unshift(last);
-    } else {
-      return last;
-    }
+    result = result ^ array[i];
   }
+  return result;
 }
 
 module.exports = uniqueNumber;
