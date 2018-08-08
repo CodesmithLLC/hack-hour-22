@@ -8,7 +8,13 @@
  */
 
 function gcd(a, b) {
-
+  let lower = Math.min(a, b);
+  let higher = Math.max(a, b);
+  let commonDenominators = [];
+  for (let i = 0; i <= lower; i++) {
+    if (lower % i === 0 && higher % i === 0) commonDenominators.push(i);
+  }
+  return commonDenominators[commonDenominators.length -1];
 }
 
 module.exports = gcd;

@@ -1,0 +1,12 @@
+Javascript Quirks
+
+1) object: {bar: 'hello} / object: {bar: 'hello}
+2) object
+3) 0.30000000000000004 / true
+4) 1, 4, 2, 3
+5) 0, 0, 0, 0, 0
+6) "John Doe" / "John Doe"
+7) 1
+8) error
+9) true/false
+10) undefined / 2

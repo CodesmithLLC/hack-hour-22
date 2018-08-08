@@ -10,7 +10,24 @@
  */
 
 function getAllProducts(array) {
+  let perms = [];
+  let products = [];
+  
+  // get permutations of all elements
+  // create copies
+  for (let i = 0; i < array.length; i++) {
+    perms.push(Array.from(array));
+  }
+  // splice one element at a time
+  perms.forEach((el, i) => el.splice(i, 1));
 
+  // reduce elements into products
+  perms.forEach(e => products.push(e.reduce((a, b) => a * b)));
+
+  // return output
+  return products;
 }
+
+console.log(getAllProducts([1, 7, 3, 4]))
 
 module.exports = getAllProducts;
