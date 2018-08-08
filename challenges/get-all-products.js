@@ -10,7 +10,35 @@
  */
 
 function getAllProducts(array) {
-
+  let zeroCount = 0, prod = 1;
+  let zeroIndex;
+  
+  for (let i = 0; i < array.length; i++) {
+    // if zero, include in zero count
+    if (array[i] === 0) {
+      zeroCount++;
+      zeroIndex = i;
+    }
+    // if nonzero, include in product
+    else
+      prod *= array[i];
+  }
+  
+  // how many zeros did we find?
+  if (zeroCount === 0)
+    return array.map(ele => prod / ele);
+  else if (zeroCount === 1) {
+    const result = new Array(array.length).fill(0);
+    result[zeroIndex] = prod;
+    return result;
+  }
+  else
+    return new Array(array.length).fill(0);
 }
 
+console.log(getAllProducts([2, 7, 3, 4]));
+console.log(getAllProducts([2, 7, 0, 3, 4]));
+console.log(getAllProducts([2, 7, 0, 3, 4, 0]));
+
 module.exports = getAllProducts;
+
