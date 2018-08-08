@@ -9,8 +9,24 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
+const product = array => array.reduce((a, b) => a * b);
 
+const yank = (array, index) =>
+  [...array.slice(0, index), ...array.slice(index + 1)];
+
+function getAllProducts(array) {
+  if (!Array.isArray(array) || array.length === 0) {
+    throw new TypeError('Argument must be an array with at least one element');
+  }
+
+  const total = product(array);
+  if (total === 0) {
+    const output = Array(array.length).fill(0);
+    const zero = array.indexOf(0);
+    output[zero] = product(yank(array, zero));
+    return output;
+  }
+  return array.map(val => total / val);
 }
 
 module.exports = getAllProducts;
