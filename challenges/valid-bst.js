@@ -17,7 +17,7 @@ function validBST(tree) {
 		if (tree.value < tree.left.value) {
 			return false;
 		}
-		if (! validBST(tree.left) ) return false;
+		if (!validBST(tree.left) ) return false;
 	}
 	if (tree.right) {
 		if (tree.value > tree.right.value) {
