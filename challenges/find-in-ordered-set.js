@@ -11,8 +11,19 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+  let ls = 0;
+  let rs = arr.length - 1;
 
+  while(ls <= rs) {
+    let mid = Math.floor((ls + rs) / 2);
+    if (arr[mid] === target) return true;
+    if (target > arr[mid]) {
+      ls = mid + 1;
+    } else {
+      rs = mid + 1;
+    }
+  }
+  return false;
 }
-
 
 module.exports = findInOrderedSet;

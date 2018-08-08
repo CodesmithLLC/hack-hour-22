@@ -12,8 +12,29 @@
 
 
 
-function deleteDups(head) {
 
+function deleteDups(head) {
+  let outerNode = head;
+  let innerNode;
+
+  while (outerNode && outerNode.next) {
+    innerNode = outerNode.next;
+    const value = outerNode.value;
+    while (innerNode && innerNode.next) {
+      if (value === innerNode.next.value) {
+        if(innerNode.next.next) {
+          innerNode.next = innerNode.next.next;
+        } else {
+          innerNode.next = null;
+        }
+      } 
+      innerNode = innerNode.next;
+      
+      
+    }
+    outerNode = outerNode.next;
+  }
+  return head;
 }
 
 module.exports = deleteDups;

@@ -10,7 +10,22 @@
  */
 
 function getAllProducts(array) {
-
+  // takes in an array
+  // outputs a new array with all of the numbers inside the array multiplies by one another
+  // make productsArr to push 
+  // iterate over array
+  // iterate over each element inside another loop
+  // multiple all elements by oen another except the current element 
+  // return
+  let productsArr = [];
+  for (let i = 0; i < array.length; i++) {
+    let prod = 1;
+    for (let j = 0; i < array.length; j++) {
+      if (array[j] !== array[i]) prod *= array[j];
+    }
+    productsArr.push(prod);
+  }
+  return productsArr;
 }
 
 module.exports = getAllProducts;
