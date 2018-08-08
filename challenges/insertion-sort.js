@@ -11,9 +11,7 @@ function insertionSort(array) {
       let swap = array[current];
       array[current] = array[current - 1];
       array[current - 1] = swap;
-      j--;
     }
-    i++;
   }
 }
 
