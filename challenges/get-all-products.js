@@ -10,17 +10,15 @@
  */
 
 function getAllProducts(array) {
-  const sets = []; 
+  const newArr = [];
   for (let i = 0; i < array.length; i += 1) {
-    // get all sets of numbers in array index excluding itself
-    const nums = array.slice(0, i).concat(array.slice(i + 1, array.length));
-    sets.push(nums);
+    const num = array.reduce((acc, curr, index) => {
+      if (index ==== i) return acc;
+      return acc * curr;
+    }, 1);
+    newArr.push(num);
   }
-
-  // map over the array, reduce the array sets by multiplying
-  return sets.map((arr) => {
-    return arr.reduce((a, b) => a * b);
-  });
+  return newArr;
 }
 
 module.exports = getAllProducts;
