@@ -36,9 +36,9 @@ function getAllProducts(array) {
     return new Array(array.length).fill(0);
 }
 
-console.log(getAllProducts([2, 7, 3, 4]));
-console.log(getAllProducts([2, 7, 0, 3, 4]));
-console.log(getAllProducts([2, 7, 0, 3, 4, 0]));
+// console.log(getAllProducts([2, 7, 3, 4]));
+// console.log(getAllProducts([2, 7, 0, 3, 4]));
+// console.log(getAllProducts([2, 7, 0, 3, 4, 0]));
 
 module.exports = getAllProducts;
 
