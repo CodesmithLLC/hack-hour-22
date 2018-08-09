@@ -17,7 +17,16 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  
+  let newNode = new Node(val);
+  if (this.head === null) {
+    this.head = newNode;
+    this.tail = newNode;
+  } else {
+    let pointer = this.tail;
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.tail.prev = pointer; 
+  }
 };
 
 /*
