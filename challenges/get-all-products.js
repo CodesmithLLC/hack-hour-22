@@ -10,6 +10,9 @@
  */
 
 function getAllProducts(array) {
+  // edge case of array with length 0
+  if (array.length === 0) return [0];
+  
   let zeroCount = 0, prod = 1;
   let zeroIndex;
   
