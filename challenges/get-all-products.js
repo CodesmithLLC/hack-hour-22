@@ -12,11 +12,11 @@
 function getAllProducts(array) {
   const newArr = [];
   for (let i = 0; i < array.length; i += 1) {
-    const num = array.reduce((acc, curr, index) => {
-      if (index ==== i) return acc;
-      return acc * curr;
-    }, 1);
-    newArr.push(num);
+    let product = 1;
+    for (let j = 0; j < array.length; j += 1) {
+      if (array[j] !== array[i]) product *= array[j];
+    }
+    newArr.push(product);
   }
   return newArr;
 }
