@@ -10,7 +10,9 @@
  */
 
 function getAllProducts(array) {
-
+  return array.length < 1 ? [0] : array.map((val, i) => array.reduce((prod, value, index) => {
+    return index !== i ? prod * value : prod;
+  }, 1));
 }
 
 module.exports = getAllProducts;
