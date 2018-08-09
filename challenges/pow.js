@@ -10,7 +10,7 @@ function pow(base, power) {
   }
   if (power < 0) {
     power = -1 * power;
-    let result = power === 1 ? base : base * pow(base, power - 1);
+    const result = power === 1 ? base : base * pow(base, power - 1);
     return 1 / result;
   }
 } 
