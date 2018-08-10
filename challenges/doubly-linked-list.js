@@ -33,7 +33,21 @@ LinkedList.prototype.add = function(val) {
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  
+  let current = this.head;
+  while (current) {
+    if (this.head.val === val) {
+      this.head = current.next;
+      this.head.prev = null;
+    } else if (this.tail.val === val) {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    } else if (current.val === val) {
+      current.prev.next = current.next;
+      current.next.prev = current.prev;
+    }
+    current = current.next;
+  }
+  return
 };
 
 module.exports = LinkedList;
