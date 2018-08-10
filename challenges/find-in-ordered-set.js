@@ -9,9 +9,19 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
 function findInOrderedSet(arr, target) {
-  return arr.includes(target);
+  // define midpoint
+  let mid = Math.floor((front + back) / 2);
+
+  // define base cases
+  if (target === arr[mid]) return true;
+  if (front === back) return false;
+
+  // recurse and adjust midpoint
+  if (target < arr[mid])
+    return findInOrderedSet(arr, target, front, (back = mid));
+  if (target > arr[mid])
+    return findInOrderedSet(arr, target, (front = mid + 1), back);
 }
 
 // TESTS
