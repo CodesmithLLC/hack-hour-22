@@ -10,7 +10,12 @@
  *
  */
 function uniqueNumber(array) {
-
+  let sum = array.reduce((acc, val) => acc + val, 0);
+  let mySet = new Set(array);
+  let setSum = mySet.map((k, x) => [k, x + 1]);
+  return (3 * (setSum - sum)) / 2;
 }
 
+// Tests
+uniqueNumber([1, 2, 1, 3, 3]);
 module.exports = uniqueNumber;
