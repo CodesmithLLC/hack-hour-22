@@ -13,8 +13,8 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-  const leftValid = tree.left ? tree.left.value < this.value && validBST(left) : true;
-  const rightValid = tree.right ? tree.value < this.right.value && validBST(right) : true;
+  const leftValid = tree.left ? tree.left.value < this.value && validBST(tree.left) : true;
+  const rightValid = tree.right ? tree.value < this.right.value && validBST(tree.right) : true;
   
   return leftValid && rightValid;
 }
