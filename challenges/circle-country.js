@@ -22,8 +22,24 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+const distance = (a, b, x, y) =>
+  Math.sqrt(((a - x) ** 2) + ((b - y) ** 2));
 
+const contains = (a, b, x, y, r) =>
+  distance(a, b, x, y) < r;
+
+const merge = (arr1, arr2, arr3) =>
+  arr1.reduce((res, val, idx) => [...res, [val, arr2[idx], arr3[idx]]], []);
+
+function circleCountry(x, y, r, startX, startY, endX, endY) {
+  const circles = merge(x, y, r);
+
+  return circles.filter((circle) => {
+    const startInside = contains(startX, startY, ...circle);
+    const endInside = contains(endX, endY, ...circle);
+    return startInside !== endInside; // one and only one circle contains it
+  }).length;
 }
+
 
 module.exports = circleCountry;
