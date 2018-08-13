@@ -41,8 +41,8 @@ Removes the first node with the inputted value
 LinkedList.prototype.remove = (val) => {
   const curr = this.head; 
   while (curr !== null) {
-    let data = new Node(val);
-    if (curr.val === data) {
+    const data = new Node(val);
+    if (curr.val === data.val) {
       delete curr.val;
       curr.next = data.next;
     }
