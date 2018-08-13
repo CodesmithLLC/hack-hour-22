@@ -11,6 +11,14 @@
  */
 function uniqueNumber(array) {
 
+  const newArr = array.sort((a, b) => a - b);
+
+  return newArr.reduce( (acc, curr, i) => {
+    if (curr !== array[i+1] && curr !== array[i - 1]) return curr;
+    return acc;
+  }, null)
+
 }
 
+console.log(uniqueNumber([1, 2, 1, 3, 3]))
 module.exports = uniqueNumber;

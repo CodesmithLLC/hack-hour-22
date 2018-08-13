@@ -22,11 +22,15 @@
  */
 
 function EventEmitter() {
+  this.events = {};
 
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if (typeof this.events[funcName] !== 'object') {
+    this.events[funcName] = [];
+  }
+  this.events[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
