@@ -23,7 +23,39 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+    // print out all the 
+    // check if the start_x, start_y is inside each circle
+    // check if the end_x, start_y is inside each circle
+    let circleCtr = 0;
 
+    // check if the distance between start and end point are inside the the circle...
+    // 
+
+    for (let i = 0; i < r.length; i++){
+        let circle = new Circle(x[i], y[i], r[i]);
+        if (circle.contains(start_x, start_y) !== circle.contains(end_x, end_y))
+        circleCtr++;
+      }
+      return circleCtr;
 }
+function Circle(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+  
+  Circle.prototype.contains = function(x, y) {
+    let distanceFromCenter = Math.hypot(this.x - x, this.y - y);
+    return this.r >= distanceFromCenter;
+  };
 
+const x = [20, 20, ];
+const y = [20, 20];
+const r = [1, 2];
+const start_x = 0;
+const start_y = 0;
+const end_x =  4;
+const end_y = 4;
+
+console.log(circleCountry(x, y, r, start_x, start_y, end_x, end_y))
 module.exports = circleCountry;
