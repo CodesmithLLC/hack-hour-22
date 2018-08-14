@@ -11,7 +11,10 @@
  */
 
 function repeatNumbers(array) {
-
+  return array.reduce((a, b) => {
+    if (!a[b]) a[b] = 1;
+    return b;
+  }, {});
 }
 
 module.exports = repeatNumbers;

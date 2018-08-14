@@ -10,7 +10,22 @@
  *
  */
 function uniqueNumber(array) {
+  // define min and max
+  // summation formula
+  // subtract out the actual sum from the summation
 
+  const min = Math.min(...array);
+  const max = Math.max(...array);
+  var summation = 0;
+  
+  for (let i = min; i <= max; i++) {
+    summation += i;
+  }
+  
+  const actualSum = array.reduce((a, b) => a + b);
+  return summation * 2 - actualSum;
 }
+
+console.log(uniqueNumber([1, 2, 1, 3, 3]));
 
 module.exports = uniqueNumber;

@@ -9,7 +9,20 @@
  */
 
 function subsetSum(array, target) {
+    const sum = Math.max.apply(null, array);
+    array.splice(array.indexOf(sum), 1);
+    let sets = [[]];
 
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0, len = sets.length; j < len; j++) {
+            let temp = sets[j].concat(array[i]);
+            sets.push(temp);
+            let s = temp.reduce(function (p, c) { return p + c; });
+            if (s === target) { return "true"; }
+        }
+    }
+
+    return "false";
 }
 
 module.exports = subsetSum;
