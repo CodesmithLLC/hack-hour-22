@@ -10,8 +10,38 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
+function within(x, a, b) {
+  return x >= a && x <= b;
+}
 
+function bothWithin(x, y) {
+  return within(x, 1, 8) && within(y, 1, 8);
+}
+
+function knightjumps(str) {
+  let count = 0;
+  const start = str
+    .replace(/\(|\)/g, '')
+    .split(' ')
+    .map(int => parseInt(int)); // eslint-disable-line radix
+
+  [
+    [-2, -1],
+    [-1, -2],
+    [1, -2],
+    [2, -1],
+    [2, 1],
+    [1, 2],
+    [-1, 2],
+    [-2, 1],
+  ].forEach((move) => {
+    const potential = start.slice();
+    potential[0] += move[0];
+    potential[1] += move[1];
+    if (bothWithin(...potential)) count += 1;
+  });
+
+  return count;
 }
 
 module.exports = knightjumps;
