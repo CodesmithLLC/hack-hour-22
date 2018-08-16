@@ -14,7 +14,19 @@
 */
 
 function drawStairs(n) {
-
+    let star = '*';
+    let spaces = ' ';
+    let stair = new Array(n);
+    for (var i = n; i >= 0; i--) {
+        for (var j = n; j >= 0; j--) {
+        if (i < n) {
+            stair[i] = star;
+        } else {
+            stair[j] = spaces;
+        }
+        }
+        console.log(stair.join(''));
+    }
 }
 
 

@@ -7,7 +7,30 @@
  */
 
 function Stack() {
-  // body...
+  this.storage = {};
+  this.index = 0;
+};
+
+Stack.prototype.push = function (value) {
+  this.storage[this.index] = value;
+  this.index++;
+  return Object.keys(this.storage).length;
+};
+
+Stack.prototype.pop = function() {
+  let deleted = this.storage[this.index - 1];
+  delete this.storage[this.index - 1];
+  this.index--;
+  return deleted;
+};
+
+Stack.prototype.getMax = function() {
+  let values = [];
+  for (let key in this.storage) {
+    values.push(this.storage[key]);
+  }
+  return Math.max(...values);
 }
+
 
 module.exports = Stack;

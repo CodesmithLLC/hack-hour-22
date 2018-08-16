@@ -11,7 +11,10 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+//toLowerCase everything
+//regex to replace non-chars
+//reverse string
+//check if end is === string reverse
 }
 
 module.exports = matchWord;
