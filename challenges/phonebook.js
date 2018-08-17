@@ -27,14 +27,20 @@
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
-  const phonebook = {};
-  for (let index in jazbook) {
-    if (jazbook[index][0].match(/^[0-9]$/)) {
-      phonebook[jazbook[index][1]] = jazbook[index][0]; 
-    } else {
-      phonebook[[index][0]] = jazbook[index][1];
-    }
-  }
+  const phonebook = jazbook.reduce((obj, curr) => {
+    obj[curr[0]] = curr[1];
+    return acc;
+  }, {});
+
+  phonebook.add = (name, num) => {
+    this[name] = num;
+  };
+  phonebook.find = (name) => {
+    return this[name] || false;
+  };
+  phonebook.remove = (name) => {
+    delete this[name];
+  };
   return phonebook;
 };
 
@@ -45,30 +51,6 @@ function findName(jazbook, name){
   }
   return false;
 };
-
-makePhoneBookObject.prototype.add = (jazbook, name, number) => {
-  const entry = [];
-  entry.push(name, number);
-  jazbook.push(entry);
-  return jazbook;
-}
-
-makePhoneBookObject.prototype.delete = (jazbook, name) => {
-  for (let i = 0; i < jazbook.length; i += 1) {
-    if (name === jazbook[i][0]) delete jazbook[i]
-  }
-  return jazbook;
-};
-
-makePhoneBookObject.prototype.sortBook = (jazbook) => {
-  const sorted = [];
-  for (let i = 0; i < jazbook.length; i += 1) {
-    sorted.push(jazbook[i][0]);
-  }
-  sorted.sort();
-  jazbook = sorted;
-  return jazbook;
-}
 
 
 const objectToExport = {
