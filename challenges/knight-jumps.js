@@ -10,8 +10,29 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
+const jumps = [[2, 1], [1, 2], [-2, 1], [-1, 2], [2, -1], [1, -2], [-2, -1], [-1, -2]];
 
+function combine(start, jump) {
+  return [start[0] + jump[0], start[1] + jump[1]];
 }
 
+function test(candidate) {
+  return 1 <= candidate[0] && candidate[0] <= 8 && 1 <= candidate[1] && candidate[1] <= 8;
+}
+
+function knightjumps(str) {
+  const start = [parseInt(str[1]), parseInt(str[3])];
+  
+  let total = 0;
+  for (const jump of jumps) {
+    const candidate = combine(start, jump);
+    
+    total += test(candidate);
+  }
+  
+  return total;
+}
+
+
 module.exports = knightjumps;
+
