@@ -19,7 +19,7 @@ function countStairs(n, memory = []) {
   if (n < 0) return 0;
   if (memory[n]) return memory[n];
 
-  memory[n] = countStairs(n - 1) + countStairs(n - 2);
+  memory[n] = countStairs(n - 1, memory) + countStairs(n - 2, memory);
   return memory[n];
 }
 
