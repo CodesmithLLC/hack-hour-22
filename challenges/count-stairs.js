@@ -15,7 +15,10 @@
  */
 
 function countStairs(n) {
-
+  // use fibonacci logic to find n ways to stairs
+  if (n === 0) return 1;
+  if (n < 0) return 0;
+  return countStairs(n - 1) + countStairs(n - 2);
 }
 
 module.exports = countStairs;
