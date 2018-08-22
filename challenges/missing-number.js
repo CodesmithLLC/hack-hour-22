@@ -25,7 +25,43 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  
+  // get the index and element
+  const combinedArray = Object.entries(array);
+  console.log(combinedArray);
+
+  
+  // flatten array
+  const newArray = combinedArray.reduce((acc, val) => 
+  {
+    val = [parseInt(val[0])+1, val[1]-1];
+    console.log(val);
+    // console.log(acc.concat(val))
+    return acc.concat(val)
+  }, []);
+  
+  console.log(newArray)
+  // perform bitwise operation
+  const result = newArray.reduce(function(a, b) {
+    return a ^ b;
+  });
+
+  return result + 1;
 }
+// let A = [];
+// A[0] = 2
+// A[1] = 3
+// A[2] = 1
+// A[3] = 5
+
+
+// let A = [];
+// A[0] = 2
+// A[1] = 3
+// A[2] = 4
+// A[3] = 5
+
+console.log(missingNum(A))
 
 module.exports = missingNum;

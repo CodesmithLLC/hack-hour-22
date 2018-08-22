@@ -11,7 +11,40 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+// split str to string;
+    let sanitizedTxt = str.replace(/\(/g, "");
+    sanitizedTxt = sanitizedTxt.replace(/\)/g, "");
+
+    const array = sanitizedTxt.split(" ");
+    const x = parseInt(array[0]);
+    const y = parseInt(array[1]);
+    console.log(x,y)
+
+    let possibleMoves = 8;
+
+
+    if (y === 7 || y === 1 ) {
+        possibleMoves -= 2;
+    }
+
+    if (x === 7 || x === 1  ) {
+        possibleMoves -= 2;
+    }
+
+    if (x == 8  ) {
+        console.log('x is 8')
+        possibleMoves -= 4;
+    }
+    if (y === 8  ) {
+        possibleMoves -= 2;
+    }
+    
+    if (y > 2 && x > 2 && y< 6 && x < 6) return possibleMoves;
+
+    return possibleMoves;
+    
 
 }
-
+// console.log(knightjumps("(4 5)"));
+console.log(knightjumps("(8 8)"));
 module.exports = knightjumps;
