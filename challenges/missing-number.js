@@ -25,7 +25,15 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(A) {
+  // declare length to get size number
+  const size = A.length; 
+  let sum = 0;
+  // iterate through array and add sum with index value
+  for (let i = 0; i < size; i += 1) {
+    sum += A[i];
+  }
+  return (size + 1) * ((size + 2) / 2) - sum
 }
 
 module.exports = missingNum;
