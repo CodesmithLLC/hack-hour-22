@@ -11,7 +11,33 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let movecounts = 0;
+  // parse string for number positions
+  const posX = parseInt(str.charAt(1));
+  const posY = parseInt(str.charAt(4));
+  
+  // if moving L/R/U/D 2, L/R/U/D 1, check that final coordinates between 1 & 8
+  // add 1 to movecounts for each successful case
+  if (posX - 2 >= 1) {
+    if (posY + 1 <= 8) movecounts++;
+    if (posY - 1 >= 1) movecounts++;
+  }
+  if (posX + 2 <= 8) {
+    if (posY + 1 <= 8) movecounts++;
+    if (posY - 1 >= 1) movecounts++;
+  }
+  if (posY + 2 <= 8) {
+    if (posX + 1 <= 8) movecounts++;
+    if (posX - 1 >= 1) movecounts++;
+  }
+  if (posY + 2 >= 1) {
+    if (posX + 1 <= 8) movecounts++;
+    if (posX - 1 >= 1) movecounts++;
+  }
 
+  return movecounts;
 }
+
+console.log(knightjumps('(8, 5)'))
 
 module.exports = knightjumps;

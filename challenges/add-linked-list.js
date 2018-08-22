@@ -18,7 +18,24 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let current1 = l1.head;
+  let current2 = l2.head;
+  const output = [];
+  let carryOver = 0;
+  while (current1 || current2) {
+    const sum = current1 + current2 + carryOver;
+    if (sum <= 9) {
+      output.push(sum);
+      carryOver = 0;
+    }
+    if (sum > 9) {
+      output.push(sum - 10);
+      carryOver += 1;
+    }
+    current1 = current1.next;
+    current2 = current2.next;
+  }
+  return output;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node, addLinkedList };
