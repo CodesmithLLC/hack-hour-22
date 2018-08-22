@@ -14,7 +14,7 @@
  */
 
 function binToDec(binary) {
-
+  return binary.split('').reverse().reduce((acc, val, i) => acc + ((2 ** i) * val), 0);
 }
 
 module.exports = binToDec;

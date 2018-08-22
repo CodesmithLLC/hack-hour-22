@@ -25,7 +25,11 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  const n = array.length + 1;
+  const correctSum = (n * (n + 1)) / 2;
+  const currSum = array.reduce((acc, v) => acc + v);
+  return correctSum - currSum;
 }
 
 module.exports = missingNum;
