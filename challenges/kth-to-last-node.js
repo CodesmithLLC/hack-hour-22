@@ -1,12 +1,11 @@
 /**
  * Write a function that takes two parameters, an integer and the head of a
  * singly linked list, and returns the VALUE on the kth to last node in the list.
- *
- * const a = new Node('A');
- * const b = new Node('B');
- * const c = new Node('C');
- * const d = new Node('D');
- * const e = new Node('E');
+ * const a = new Node("A");
+ * const b = new Node("B");
+ * const c = new Node("C");
+ * const d = new Node("D");
+ * const e = new Node("E");
  *
  * a.next = b;
  * b.next = c;
@@ -22,7 +21,35 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  let slowPointer = head;
+  let fastPointer = head;
 
+  for (let i = 1; i < k; i++) {
+    if (fastPointer.next !== null) {
+      fastPointer = fastPointer.next;
+    } else return undefined;
+  }
+
+  while (fastPointer.next !== null) {
+    fastPointer = fastPointer.next;
+    slowPointer = slowPointer.next;
+  }
+
+  return slowPointer.value;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node: Node, kthToLastNode: kthToLastNode };
+
+// TEST CASES:
+// const a = new Node("A");
+// const b = new Node("B");
+// const c = new Node("C");
+// const d = new Node("D");
+// const e = new Node("E");
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+
+// console.log(kthToLastNode(2, a));

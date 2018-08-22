@@ -14,7 +14,20 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  // Check if tree is empty - Y? -> balanced
+  if (!tree.value) return true;
+  // Traverse left / Traverse right - check if each is blanaced & count depth
+  function recurse(t) {
+    if (!t) {
+      return 0;
+    }
+    if (t.left) {
+      return recurse(t.left)
+    }
+    return t.value
+  }
+  // Compare depths
 
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };

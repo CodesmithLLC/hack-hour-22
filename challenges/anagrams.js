@@ -13,7 +13,21 @@
   */
 
 function anagrams(string) {
-
+  if (string.length < 2) return string;
+    let output = [];
+    for (let i = 0; i < string.length; i ++) {
+        let char = string[i];
+        if (string.indexOf(char) != i)
+            continue;
+        let remainingLetters = string.slice(0, i) + string.slice(i + 1, string.length);
+        for (let subSet of anagrams(remainingLetters))
+            output.push(char + subSet)
+    }
+    return output;
 }
 
 module.exports = anagrams;
+
+// Tests
+// const result = anagrams('abc');
+// console.log(result);  // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
