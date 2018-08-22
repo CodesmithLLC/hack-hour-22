@@ -10,16 +10,40 @@
 //  example input:
 // var str = "(4 5)"
 
+// function knightjumps(str) {
+//   const x = +str[1];
+//   const y = +str[3];
+//   let jumps = 0;
+
+//   // right
+//   if (x < 7 && y > 1) jumps += 1;
+//   if (x < 7 && y < 8) jumps += 1;
+
+//   // left
+//   if (x > 2 && y > 1) jumps += 1;
+//   if (x > 2 && y < 8) jumps += 1;
+
+//   // up
+//   if (y < 7 && x > 1) jumps += 1;
+//   if (y < 7 && x < 8) jumps += 1;
+
+//   // down
+//   if (y > 2 && x > 1) jumps += 1;
+//   if (y > 2 && x < 8) jumps += 1;
+
+//   return jumps;
+// }
+
 function knightjumps(str) {
-  const position = [str[1], str[3]];
-  const xMoves = [2, 2, -2, -2, 1, 1, -1, -1];
-  const yMoves = [1, -1, 1, -1, 2, -2, 2, -2];
-
-  for (let i = 1; i <= 8; i += 1) {}
+  var x = reflect(+str[1]);
+  var y = reflect(+str[3]);
+  var x_distance = Math.max(3 - x, 0);
+  var y_distance = Math.max(3 - y, 0);
+  return 8 - distanceToValue(x_distance + y_distance);
 }
-
-// Tests
-const str = "(4 5)";
-console.log(knightjumps(str));
-
-module.exports = knightjumps;
+function distanceToValue(d) {
+  return d < 2 ? 2 * d : d + 2;
+}
+function reflect(n) {
+  return n > 4 ? 9 - n : n;
+}
