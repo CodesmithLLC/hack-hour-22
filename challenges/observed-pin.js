@@ -21,8 +21,7 @@ could also be the 2 or 4. And instead of the 5 it could also be the 2, 4, 6 or 8
 
 He also mentioned, he knows this kind of locks. You can enter an unlimited amount of wrong PINs, they 
 never finally lock the system or sound the alarm. That's why we can try out all possible (*) variations.
-
-* possible in sense of: the observed PIN itself and all variations considering the adjacent digits
+Possible in sense of: the observed PIN itself and all variations considering the adjacent digits
 
 Can you help us to find all those variations? It would be nice to have a function, that returns an array 
 of all variations for an observed PIN with a length of 1 to 8 digits. We could name the function getPINs. 
@@ -39,12 +38,24 @@ expectations = {
 
 */
 
-
-
-
 function getPINs(observed) {
-
+  const variations = {
+    0: [8],
+    1: [2, 4],
+    2: [1, 3, 5],
+    3: [2, 6],
+    4: [1, 5, 7],
+    5: [2, 4, 6, 8],
+    6: [3, 5, 9],
+    7: [4, 8],
+    8: [5, 7, 9, 0],
+    9: [6, 8]
+  };
 }
 
+// Tests
+console.log(getPINs("8")); // ["5", "7", "8", "9", "0"],
+console.log(getPINs("11")); // ["11", "22", "44", "12", "21", "14", "41", "24", "42"],
+console.log(getPINs("369")); // ["339", "366", "399", "658", "636", "258", "268", "669", "668", "266", "369", "398", "256", "296", "259", "368", "638", "396", "238", "356", "659", "639", "666", "359", "336", "299", "338", "696", "269", "358", "656", "698", "699", "298", "236", "239"],
 
-module.exports = getPINs
+module.exports = getPINs;

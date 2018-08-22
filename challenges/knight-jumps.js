@@ -11,7 +11,15 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const position = [str[1], str[3]];
+  const xMoves = [2, 2, -2, -2, 1, 1, -1, -1];
+  const yMoves = [1, -1, 1, -1, 2, -2, 2, -2];
 
+  for (let i = 1; i <= 8; i += 1) {}
 }
+
+// Tests
+const str = "(4 5)";
+console.log(knightjumps(str));
 
 module.exports = knightjumps;
