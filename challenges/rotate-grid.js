@@ -13,11 +13,25 @@
  *                                          [8, 5, 2],
  *                                          [9, 6, 3]  ]
  *
- * BONUS: Do this in place
+ * BONUS: Do this in place 20 10 00, 21 11 01, 22 12 02
+ * 
  */
-
 function rotateGrid(grid, n) {
+  let output = [];
+  let temp = [];
 
+  for (let i = 0; i < n; i++) {
+    for (let j = n - 1; j >= 0; j--) {
+      temp.push(grid[j][i]);
+    }
+    output.push(temp);
+    temp = [];
+  }
+  return output;
 }
 
 module.exports = rotateGrid;
+
+
+let sampleGrid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+console.log(rotateGrid(sampleGrid, 3));

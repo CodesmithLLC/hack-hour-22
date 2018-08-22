@@ -23,7 +23,14 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  return r.reduce((acc, radius, index) => {
+    const startDistance = Math.hypot(x[index] - start_x, y[index] - start_y);
+    const endDistance = Math.hypot(x[index] - end_x, y[index] - end_y);
+    return (startDistance > radius && radius > endDistance) ||
+      (startDistance < radius && radius < endDistance)
+      ? ++acc
+      : acc;
+  }, 0);
 }
 
 module.exports = circleCountry;

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /**
  * Make an EventEmitter that
  *
@@ -22,15 +22,16 @@
  */
 
 function EventEmitter() {
-
+  this.cache = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if (!this.cache[funcName]) this.cache[funcName] = [];
+  this.cache[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  this.cache[funcName].forEach(ele => ele(...args));
 };
 
 module.exports = EventEmitter;
