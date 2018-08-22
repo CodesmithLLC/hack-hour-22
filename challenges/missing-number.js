@@ -26,6 +26,19 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  // find highest number
+  const max = Array.length + 1;
+  // calculate summation between 1 and N+1
+  let expectedSum = 0;
+  for (let i = 0; i <= max; i += 1) {
+    expectedSum += i
+  }
+  // calculate actual sum of array elements
+  const actualSum = Array.reduce((a, b) => a + b);
+  
+  // return difference between expected and actual sums
+  let missingElement = expectedSum - actualSum;
+  return missingElement;
 }
 
 module.exports = missingNum;
