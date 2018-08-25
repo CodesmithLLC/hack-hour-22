@@ -31,7 +31,7 @@ function solveKnapsack(items, weightAvailable) {
       }
       return -Infinity;
     }),
-    0,
+    0
   );
 }
 
