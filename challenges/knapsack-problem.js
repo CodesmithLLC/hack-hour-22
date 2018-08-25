@@ -25,7 +25,7 @@ function solveKnapsack(items, weightAvailable) {
       if (weightAvailable >= item.weight) {
         const possibility = solveKnapsack(
           yank(items, i),
-          weightAvailable - item.weight,
+          weightAvailable - item.weight
         );
         return possibility + item.value;
       }
