@@ -9,8 +9,30 @@
   solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 */
 
-function solveKnapsack(items, weightAvailable) {
+function yank(array, i) {
+  return [...array.slice(0, i), ...array.slice(i + 1)];
+}
 
-};
+function solveKnapsack(items, weightAvailable) {
+  if (!Array.isArray(items) || items.length === 0) return 0;
+  if (items.length === 1) {
+    const [final] = items;
+    return weightAvailable >= final.weight ? final.value : 0;
+  }
+
+  return Math.max(
+    ...items.map((item, i) => {
+      if (weightAvailable >= item.weight) {
+        const possibility = solveKnapsack(
+          yank(items, i),
+          weightAvailable - item.weight,
+        );
+        return possibility + item.value;
+      }
+      return -Infinity;
+    }),
+    0,
+  );
+}
 
 module.exports = solveKnapsack;
