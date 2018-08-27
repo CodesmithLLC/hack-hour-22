@@ -20,8 +20,23 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+const eachPermutation = (arr) => {
+  const result = [];
 
+  const permutator = (arr, cache = []) => {
+    // if array length is empty, all permutations have been done
+    if (!arr.length) {
+      result.push(cache);
+    } else {
+      for (let i = 0; i < arr.length; i += 1) {
+        let current = arr.slice();
+        let next = curr.splice(i, 1);
+        permutator(current.slice(), m.concat(next));
+      }
+    }
+  }
+  permutator(arr);
+  return result;
 }
 
 
