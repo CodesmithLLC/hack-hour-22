@@ -20,10 +20,25 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+const prepend = el => arr => [el, ...arr];
 
+Array.prototype.without = function without(i) {
+  return [...this.slice(0, i), ...this.slice(i + 1)];
+};
+
+function allPerms(arr) {
+  if (arr.length === 1) return [arr];
+  const out = [];
+  arr.forEach((val, idx) => {
+    const perms = allPerms(arr.without(idx));
+    const grouped = perms.map(prepend(val));
+    out.push(...grouped);
+  });
+  return out;
 }
 
-
+function eachPermutation(arr, callback) {
+  allPerms(arr).forEach(callback);
+}
 
 module.exports = eachPermutation;
