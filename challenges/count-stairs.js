@@ -15,7 +15,26 @@
  */
 
 function countStairs(n) {
+  let count = [];
+  if (!n || n < 0) return 0;
+  while (n > 1) {
+    count.push(n - 1);
+    count.push(n - 2);
+    n -= 1;
+  }
+  count
 
+  return count.length;
 }
+
+console.log(countStairs(5));
+
+function countStairsRecursively(n) {
+  if (n === 0) return 1;
+  if (n < 0) return 0;
+  return countStairsRecursively(n - 1) + countStairs(n - 2);
+}
+
+console.log(countStairsRecursively(5));
 
 module.exports = countStairs;

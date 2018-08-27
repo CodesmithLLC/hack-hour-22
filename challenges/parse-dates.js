@@ -38,9 +38,18 @@
 // - you can assume the provided day of month will be valid if it's a month string
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
-
+https://www.interviewcake.com/paypal/confirm?is_gift=True&gift_message=Keep+this+between+us.++I+know+you+will+use+this+wisely&product_key=full_access_for_one_year_1&gift_recipient_email=25adam%40gmail.com&token=EC-3VC13382F5295163W&PayerID=ZS592L664C238
 function parseDates(str) {
-  
+
+  const parseDate = Date.parse(str);
+  parseDate;
+  const newDate = [...str.split(' ')];
+  newDate
+  return newDate.join(' ');
 }
+
+
+console.log('parseDates', parseDates('Jan 12th 1:09 AM'));
+
 
 module.exports = parseDates;
