@@ -57,4 +57,20 @@ console.log(a);
 
 console.log(kthToLastNode(2, a));
 
+
+
+/* Hack Hour SOlution */
+function kthToLastNode(k, head) {
+  var lead = head;
+  var follow = head;
+  for (var i = 0; i < k && lead; i++) {
+    lead = lead.next;
+  }
+  while (lead && follow) {
+    lead = lead.next;
+    follow = follow.next;
+  }
+  return follow.value;
+}
+
 module.exports = { Node, kthToLastNode };

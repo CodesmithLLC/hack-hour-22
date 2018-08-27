@@ -47,4 +47,37 @@ function balancedParens(input) {
   return stack.length === 0;
 }
 
+
+function balancedParens(input) {
+  var matches = { '[': ']', '{': '}', '(': ')' };
+  var brackets = [];
+  for (var i = 0; i < input.length; i++) {
+    let char = input[i];
+    if (char in matches) { // in operator
+      brackets.push(char);
+    } else if (char === ']' || char === ')' || char === '}') {
+      if (matches[brackets.pop()] !== char) {
+        return false;
+      }
+    }
+  }
+  return !brackets.length;
+}
+// #endregion
+
+////////////
+///tests///
+///////////
+
+console.log('SHOULD BE TRUE');
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens('[](){}')); // true
+console.log(balancedParens('[({})]'));   // true
+
+console.log('SHOULD BE FALSE');
+console.log(balancedParens('[(]{)}')); // false
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
+
+module.exports = balancedParens;
+
 module.exports = balancedParens;
