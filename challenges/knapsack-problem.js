@@ -10,7 +10,19 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+  // handle edge case if items/weight is nothing
+  if (items === 0 || weightAvailable === 0) return 0;
+  // if first item is too heavy
+  if (items[0] > weightAvailable) {
+    return solveKnapsack(items.slice(1), weightAvailable);
+  }
+  // if first item fits
+  else {
+    let left = items.slice(1);
+    let item = item[0].value + solveKnapsack(left, weightAvailable - item[0].weight);
+    let otherItem = solveKnapsack(left, weightAvailable);
+    return (item > otherItem) ? item : otherItem;
+  }
 };
 
 module.exports = solveKnapsack;
