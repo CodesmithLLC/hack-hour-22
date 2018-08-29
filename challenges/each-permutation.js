@@ -42,16 +42,3 @@ const eachPermutation = (arr) => {
 
 
 module.exports = eachPermutation;
-
-
-
-
-
-try {
-    // Node.js code generating an Error.
-} catch (error) {
-    if (error.message === 'ERR_HTTP_INVALID_STATUS_CODE') {
-        // Perform some logic.
-    }
-}
- 
