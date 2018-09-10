@@ -19,8 +19,10 @@ function superbalanced(tree) {
 
 // return -1 for unbalanced, tree height for balanced
 function treeCode(tree) {
-  const leftVal = this.left ? treeCode(this.left) : 0;
-  const rightVal = this.right ? treeCode(this.right) : 0;
+  if (!tree) return 0;
+  
+  const leftVal = treeCode(this.left);
+  const rightVal = treeCode(this.right);
   
   if (leftVal >= 0 && rightVal >= 0 && Math.abs(leftVal - rightVal) <= 1)
     return Math.max(leftVal, rightVal) + 1;
